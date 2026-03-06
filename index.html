@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MiniDev</title>
+
+    <link rel="stylesheet" href="geral/css/index.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="mascote">🤖</div>
+
+        <h1>MiniDev</h1>
+
+        <p>Entre no mundo e comece a sua aventura!</p>
+
+        <div class="menu">
+            
+
+            <!-- SELEÇÃO DE CURSO -->
+
+            <div id="courses" class="courses">
+                <h2>Escolha seu curso</h2>
+
+                <button onclick="startCourse('logic')">🧠 Lógica</button>
+
+                <button onclick="startCourse('html')">🌐 HTML</button>
+
+                <button onclick="startCourse('css')">🎨 CSS</button>
+
+                <button onclick="startCourse('javascript')">⚡ JavaScript</button>
+
+                <button onclick="startCourse('ai')">🤖 IA</button>
+
+            </div>
+
+        </div>
+
+
+
+
+        <!-- Tela de carregamento -->
+
+        <div id="loader">
+
+            <div class="spinner"></div>
+
+            <p>Carregando aventura... 🚀</p>
+
+        </div>
+
+        <script src="geral/js/index.js"></script>
+
+    </div>
+
+</body>
+
+</html>

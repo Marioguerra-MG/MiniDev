@@ -1,0 +1,404 @@
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Comic Sans MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #58cc02, #1cb0f6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+
+    padding: 10px;
+}
+
+/* ========================= */
+/* CONTAINER PRINCIPAL */
+/* ========================= */
+
+.container {
+
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 25px;
+
+    width: 380px;
+    max-width: 95%;
+
+    min-height: 520px;
+    max-height: 92vh;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+    overflow: auto;
+
+}
+
+/* ========================= */
+/* MASCOTE */
+/* ========================= */
+
+.mascote {
+    font-size: 60px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+/* ========================= */
+/* TEXTOS */
+/* ========================= */
+
+h1 {
+    margin: 5px 0;
+    font-size: 28px;
+    color: #333;
+}
+
+p {
+    margin: 0;
+    color: #555;
+    font-size: 15px;
+}
+
+/* ========================= */
+/* MENU */
+/* ========================= */
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+/* ========================= */
+/* CURSOS */
+/* ========================= */
+
+.courses {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 10px;
+
+}
+
+.courses h2 {
+
+    grid-column: 1 / -1;
+
+    margin-bottom: 5px;
+
+}
+
+/* ========================= */
+/* BOTÕES */
+/* ========================= */
+
+/* ========================= */
+/* CURSOS */
+/* ========================= */
+
+.courses {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+    margin-top: 15px;
+
+}
+
+/* ========================= */
+/* BOTÕES */
+/* ========================= */
+
+.courses button {
+
+    border: none;
+
+    padding: 14px 10px;
+
+    border-radius: 20px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 55px;
+
+}
+
+/* HOVER */
+
+.courses button:hover {
+
+    transform: translateY(-2px) scale(1.03);
+
+}
+
+/* CLIQUE */
+
+.courses button:active {
+
+    transform: translateY(3px);
+
+}
+
+/* ========================= */
+/* CORES DOS BOTÕES */
+/* ========================= */
+
+/* LÓGICA */
+
+.courses button:nth-child(2) {
+
+    background: #58cc02;
+
+    box-shadow: 0 5px 0 #46a302;
+
+}
+
+/* HTML */
+
+.courses button:nth-child(3) {
+
+    background: #ff6b6b;
+
+    box-shadow: 0 5px 0 #d94f4f;
+
+}
+
+/* CSS */
+
+.courses button:nth-child(4) {
+
+    background: #1cb0f6;
+
+    box-shadow: 0 5px 0 #1593cf;
+
+}
+
+/* JAVASCRIPT */
+
+.courses button:nth-child(5) {
+
+    background: #a55eea;
+
+    box-shadow: 0 5px 0 #8747c9;
+
+}
+
+/* IA */
+
+/* BOTÃO IA */
+
+.courses button:nth-child(6) {
+
+    background: #ffb400;
+    box-shadow: 0 5px 0 #d99a00;
+
+    grid-column: 1 / -1;
+    /* ocupa as duas colunas */
+
+}
+
+/* ========================= */
+/* LOADING SCREEN */
+/* ========================= */
+
+#loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: linear-gradient(135deg, #58cc02, #1cb0f6);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    color: white;
+
+    font-size: 18px;
+
+    z-index: 999;
+
+}
+
+.spinner {
+
+    width: 65px;
+    height: 65px;
+
+    border: 6px solid white;
+    border-top: 6px solid transparent;
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+
+    margin-bottom: 15px;
+
+}
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+/* ========================= */
+/* TOAST */
+/* ========================= */
+
+.toast {
+
+    position: fixed;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(40px);
+
+    background: #333;
+    color: white;
+
+    padding: 16px 24px;
+
+    border-radius: 18px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    opacity: 0;
+
+    transition: all 0.4s;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    z-index: 9999;
+
+}
+
+.toast.show {
+
+    opacity: 1;
+
+    transform: translateX(-50%) translateY(0);
+
+}
+
+.toast.error {
+    background: #ff4d4d;
+}
+
+.toast.success {
+    background: #58cc02;
+}
+
+.toast.info {
+    background: #1cb0f6;
+}
+
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+
+@media(max-width:420px) {
+
+    .container {
+        padding: 18px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .mascote {
+        font-size: 50px;
+    }
+
+    .courses button {
+
+        padding: 14px;
+
+        font-size: 16px;
+
+    }
+
+}
+
+/* TELAS MUITO BAIXAS */
+
+@media(max-height:700px) {
+
+    .container {
+        max-height: 95vh;
+    }
+
+    .mascote {
+        font-size: 45px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .courses button {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+}
