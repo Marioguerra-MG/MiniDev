@@ -52,6 +52,10 @@ function showToast(message, type = "info"){
 /* CURSOS LIBERADOS */
 /* ========================= */
 
+/* ========================= */
+/* CURSOS LIBERADOS */
+/* ========================= */
+
 function isCourseUnlocked(course){
 
     if(course === "logic") return true;
@@ -61,20 +65,22 @@ function isCourseUnlocked(course){
     const css = JSON.parse(localStorage.getItem("logicakids_progress_css"));
     const js = JSON.parse(localStorage.getItem("logicakids_progress_javascript"));
 
+    const TOTAL_PHASES = 3;
+
     if(course === "html"){
-        return logic && logic.currentDay > 15;
+        return logic && logic.currentPhase > TOTAL_PHASES;
     }
 
     if(course === "css"){
-        return html && html.currentDay > 15;
+        return html && html.currentPhase > TOTAL_PHASES;
     }
 
     if(course === "javascript"){
-        return css && css.currentDay > 15;
+        return css && css.currentPhase > TOTAL_PHASES;
     }
 
     if(course === "ai"){
-        return js && js.currentDay > 15;
+        return js && js.currentPhase > TOTAL_PHASES;
     }
 
     return false;
