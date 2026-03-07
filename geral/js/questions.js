@@ -62,7 +62,7 @@ const questionBank = {
             { question: "🍕 Onde compramos pizza?", options: ["Pizzaria", "Biblioteca", "Farmácia"], correct: 0 },
             { question: "🧠 Resolver problemas usa:", options: ["Pensamento", "Chute", "Sono"], correct: 0 },
             { question: "🧩 Jogos de montar ajudam a treinar:", options: ["Lógica", "Sono", "Barulho"], correct: 0 }
-
+            
         ],
 
         2: [
@@ -126,7 +126,7 @@ const questionBank = {
             { question: "🚀 Aprender tecnologia ajuda a:", options: ["Criar coisas novas", "Quebrar coisas", "Dormir"], correct: 0 },
             { question: "🤓 Quem gosta de aprender sempre é:", options: ["Curioso", "Preguiçoso", "Distraído"], correct: 0 },
             { question: "💡 Uma ideia nova começa com:", options: ["Pensamento", "Barulho", "Sono"], correct: 0 }
-
+            
         ],
 
         3: [
@@ -136,6 +136,7 @@ const questionBank = {
             { question: "✖️ 3 x 3 é:", options: ["9", "6", "12"], correct: 0 },
             { question: "➗ 10 ÷ 2 é:", options: ["5", "4", "6"], correct: 0 },
 
+            
             { question: "📋 Um algoritmo é:", options: ["Passos para resolver algo", "Um desenho", "Um jogo"], correct: 0 },
             { question: "🧠 Pensar antes de agir ajuda a:", options: ["Evitar erros", "Errar mais", "Confundir"], correct: 0 },
             { question: "🔁 Quando um programa repete algo:", options: ["Loop", "Erro", "Pausa"], correct: 0 },
@@ -184,175 +185,173 @@ const questionBank = {
 
     },
 
+
+
     html: {
 
-        html: {
+        1: [
 
-            1: [
+            { question: "🌐 O que usamos para criar sites?", options: ["HTML", "Geladeira", "Bicicleta"], correct: 0 },
+            { question: "📄 HTML cria:", options: ["Páginas da internet", "Filmes", "Jogos"], correct: 0 },
+            { question: "📝 Para escrever texto no site usamos:", options: ["Parágrafo", "Controle", "Bola"], correct: 0 },
+            { question: "🖼 Para mostrar uma foto usamos:", options: ["Imagem", "Som", "Cheiro"], correct: 0 },
+            { question: "🔗 Para clicar e ir para outra página usamos:", options: ["Link", "Foto", "Som"], correct: 0 },
+            { question: "📱 Um site pode abrir em:", options: ["Celular e computador", "Só rádio", "Só geladeira"], correct: 0 },
+            { question: "🌍 Sites ficam:", options: ["Na internet", "Na mochila", "No bolso"], correct: 0 },
+            { question: "📄 Um site é como:", options: ["Uma página digital", "Um prato", "Um sapato"], correct: 0 },
+            { question: "📷 Fotos no site servem para:", options: ["Mostrar imagens", "Quebrar site", "Apagar texto"], correct: 0 },
+            { question: "🧠 Criar site usa:", options: ["Programação", "Magia", "Sorte"], correct: 0 },
 
-                { question: "🌐 O que usamos para criar sites?", options: ["HTML", "Geladeira", "Bicicleta"], correct: 0 },
-                { question: "📄 HTML cria:", options: ["Páginas da internet", "Filmes", "Jogos"], correct: 0 },
-                { question: "📝 Para escrever texto no site usamos:", options: ["Parágrafo", "Controle", "Bola"], correct: 0 },
-                { question: "🖼 Para mostrar uma foto usamos:", options: ["Imagem", "Som", "Cheiro"], correct: 0 },
-                { question: "🔗 Para clicar e ir para outra página usamos:", options: ["Link", "Foto", "Som"], correct: 0 },
+            { question: "📖 Um texto no site é chamado de:", options: ["Parágrafo", "Imagem", "Vídeo"], correct: 0 },
+            { question: "🎨 Quem muda as cores do site?", options: ["CSS", "HTML", "Mouse"], correct: 0 },
+            { question: "⚡ Quem faz o site reagir ao clique?", options: ["JavaScript", "Livro", "Bola"], correct: 0 },
+            { question: "🌐 A internet conecta:", options: ["Computadores", "Sapatos", "Panelas"], correct: 0 },
+            { question: "📱 Para ver sites usamos:", options: ["Navegador", "Geladeira", "Televisão"], correct: 0 },
 
-                { question: "📱 Um site pode abrir em:", options: ["Celular e computador", "Só rádio", "Só geladeira"], correct: 0 },
-                { question: "🌍 Sites ficam:", options: ["Na internet", "Na mochila", "No bolso"], correct: 0 },
-                { question: "📄 Um site é como:", options: ["Uma página digital", "Um prato", "Um sapato"], correct: 0 },
-                { question: "📷 Fotos no site servem para:", options: ["Mostrar imagens", "Quebrar site", "Apagar texto"], correct: 0 },
-                { question: "🧠 Criar site usa:", options: ["Programação", "Magia", "Sorte"], correct: 0 },
+            { question: "🖼 Uma imagem deixa o site:", options: ["Mais bonito", "Quebrado", "Invisível"], correct: 0 },
+            { question: "📄 Um título no site serve para:", options: ["Mostrar o assunto", "Apagar texto", "Fechar página"], correct: 0 },
+            { question: "📋 Uma lista ajuda a:", options: ["Organizar itens", "Misturar tudo", "Apagar site"], correct: 0 },
+            { question: "📦 Um site tem várias:", options: ["Partes", "Rodas", "Motores"], correct: 0 },
+            { question: "🧠 Programar é:", options: ["Dar instruções", "Dormir", "Correr"], correct: 0 },
 
-                { question: "📖 Um texto no site é chamado de:", options: ["Parágrafo", "Imagem", "Vídeo"], correct: 0 },
-                { question: "🎨 Quem muda as cores do site?", options: ["CSS", "HTML", "Mouse"], correct: 0 },
-                { question: "⚡ Quem faz o site reagir ao clique?", options: ["JavaScript", "Livro", "Bola"], correct: 0 },
-                { question: "🌐 A internet conecta:", options: ["Computadores", "Sapatos", "Panelas"], correct: 0 },
-                { question: "📱 Para ver sites usamos:", options: ["Navegador", "Geladeira", "Televisão"], correct: 0 },
+            { question: "🔗 Um link funciona como:", options: ["Uma porta para outra página", "Um prato", "Um sapato"], correct: 0 },
+            { question: "📄 Um site pode ter:", options: ["Texto e imagens", "Só números", "Só música"], correct: 0 },
+            { question: "🖥 Sites aparecem na:", options: ["Tela", "Cozinha", "Garagem"], correct: 0 },
+            { question: "🌍 Pessoas do mundo todo podem ver:", options: ["Sites", "Seu caderno", "Sua mochila"], correct: 0 },
+            { question: "📱 O celular pode:", options: ["Abrir sites", "Cozinhar", "Lavar roupa"], correct: 0 },
 
-                { question: "🖼 Uma imagem deixa o site:", options: ["Mais bonito", "Quebrado", "Invisível"], correct: 0 },
-                { question: "📄 Um título no site serve para:", options: ["Mostrar o assunto", "Apagar texto", "Fechar página"], correct: 0 },
-                { question: "📋 Uma lista ajuda a:", options: ["Organizar itens", "Misturar tudo", "Apagar site"], correct: 0 },
-                { question: "📦 Um site tem várias:", options: ["Partes", "Rodas", "Motores"], correct: 0 },
-                { question: "🧠 Programar é:", options: ["Dar instruções", "Dormir", "Correr"], correct: 0 },
+            { question: "🧩 Criar site é como:", options: ["Montar blocos", "Quebrar brinquedo", "Dormir"], correct: 0 },
+            { question: "📦 HTML funciona como:", options: ["Blocos de construção", "Comida", "Sapato"], correct: 0 },
+            { question: "🖼 Imagens ajudam a:", options: ["Explicar melhor", "Confundir", "Apagar texto"], correct: 0 },
+            { question: "📄 Um parágrafo é:", options: ["Um bloco de texto", "Uma foto", "Um jogo"], correct: 0 },
+            { question: "🌐 Sites vivem:", options: ["Na internet", "No bolso", "No armário"], correct: 0 },
 
-                { question: "🔗 Um link funciona como:", options: ["Uma porta para outra página", "Um prato", "Um sapato"], correct: 0 },
-                { question: "📄 Um site pode ter:", options: ["Texto e imagens", "Só números", "Só música"], correct: 0 },
-                { question: "🖥 Sites aparecem na:", options: ["Tela", "Cozinha", "Garagem"], correct: 0 },
-                { question: "🌍 Pessoas do mundo todo podem ver:", options: ["Sites", "Seu caderno", "Sua mochila"], correct: 0 },
-                { question: "📱 O celular pode:", options: ["Abrir sites", "Cozinhar", "Lavar roupa"], correct: 0 },
+            { question: "🎮 Jogos online são:", options: ["Sites também", "Só vídeos", "Só músicas"], correct: 0 },
+            { question: "📷 Fotos no site mostram:", options: ["Imagens", "Cheiros", "Temperatura"], correct: 0 },
+            { question: "📱 Tablet pode:", options: ["Abrir sites", "Virar carro", "Cozinhar"], correct: 0 },
+            { question: "🌐 Google ajuda a:", options: ["Encontrar sites", "Dormir", "Apagar internet"], correct: 0 },
+            { question: "🧠 Aprender HTML ajuda a:", options: ["Criar sites", "Dormir mais", "Correr rápido"], correct: 0 },
 
-                { question: "🧩 Criar site é como:", options: ["Montar blocos", "Quebrar brinquedo", "Dormir"], correct: 0 },
-                { question: "📦 HTML funciona como:", options: ["Blocos de construção", "Comida", "Sapato"], correct: 0 },
-                { question: "🖼 Imagens ajudam a:", options: ["Explicar melhor", "Confundir", "Apagar texto"], correct: 0 },
-                { question: "📄 Um parágrafo é:", options: ["Um bloco de texto", "Uma foto", "Um jogo"], correct: 0 },
-                { question: "🌐 Sites vivem:", options: ["Na internet", "No bolso", "No armário"], correct: 0 },
+            { question: "📄 Um site pode ensinar:", options: ["Muitas coisas", "Nada", "Só música"], correct: 0 },
+            { question: "🌍 Sites conectam:", options: ["Pessoas", "Sapatos", "Pratos"], correct: 0 },
+            { question: "📦 HTML organiza:", options: ["Conteúdo do site", "Comida", "Roupas"], correct: 0 },
+            { question: "🧠 Criar tecnologia é:", options: ["Inventar coisas", "Dormir", "Esquecer"], correct: 0 },
+            { question: "📱 Internet funciona em:", options: ["Celular e computador", "Só fogão", "Só bicicleta"], correct: 0 },
 
-                { question: "🎮 Jogos online são:", options: ["Sites também", "Só vídeos", "Só músicas"], correct: 0 },
-                { question: "📷 Fotos no site mostram:", options: ["Imagens", "Cheiros", "Temperatura"], correct: 0 },
-                { question: "📱 Tablet pode:", options: ["Abrir sites", "Virar carro", "Cozinhar"], correct: 0 },
-                { question: "🌐 Google ajuda a:", options: ["Encontrar sites", "Dormir", "Apagar internet"], correct: 0 },
-                { question: "🧠 Aprender HTML ajuda a:", options: ["Criar sites", "Dormir mais", "Correr rápido"], correct: 0 },
+            { question: "🌐 Programadores criam:", options: ["Sites", "Montanhas", "Oceanos"], correct: 0 },
+            { question: "📄 Um site pode ter:", options: ["Títulos e texto", "Só silêncio", "Só números"], correct: 0 },
+            { question: "🖼 Uma imagem no site mostra:", options: ["Foto", "Cheiro", "Som"], correct: 0 },
+            { question: "🔗 Um link leva para:", options: ["Outra página", "Outra casa", "Outro planeta"], correct: 0 },
+            { question: "📋 Listas ajudam a:", options: ["Organizar", "Confundir", "Apagar"], correct: 0 },
 
-                { question: "📄 Um site pode ensinar:", options: ["Muitas coisas", "Nada", "Só música"], correct: 0 },
-                { question: "🌍 Sites conectam:", options: ["Pessoas", "Sapatos", "Pratos"], correct: 0 },
-                { question: "📦 HTML organiza:", options: ["Conteúdo do site", "Comida", "Roupas"], correct: 0 },
-                { question: "🧠 Criar tecnologia é:", options: ["Inventar coisas", "Dormir", "Esquecer"], correct: 0 },
-                { question: "📱 Internet funciona em:", options: ["Celular e computador", "Só fogão", "Só bicicleta"], correct: 0 },
-
-                { question: "🌐 Programadores criam:", options: ["Sites", "Montanhas", "Oceanos"], correct: 0 },
-                { question: "📄 Um site pode ter:", options: ["Títulos e texto", "Só silêncio", "Só números"], correct: 0 },
-                { question: "🖼 Uma imagem no site mostra:", options: ["Foto", "Cheiro", "Som"], correct: 0 },
-                { question: "🔗 Um link leva para:", options: ["Outra página", "Outra casa", "Outro planeta"], correct: 0 },
-                { question: "📋 Listas ajudam a:", options: ["Organizar", "Confundir", "Apagar"], correct: 0 },
-
-                { question: "🧠 Pensar ajuda a:", options: ["Criar sites", "Quebrar sites", "Apagar sites"], correct: 0 },
-                { question: "🚀 Aprender programação é:", options: ["Criar tecnologia", "Dormir", "Desistir"], correct: 0 }
-
-            ]
-        },
-
-        2: [
-
-            { question: "🏷 O título principal de uma página é:", options: ["Título", "Imagem", "Vídeo"], correct: 0 },
-            { question: "📝 Um parágrafo serve para:", options: ["Escrever texto", "Mostrar vídeo", "Apagar site"], correct: 0 },
-            { question: "🖼 Para mostrar uma foto no site usamos:", options: ["Imagem", "Lista", "Tabela"], correct: 0 },
-            { question: "🔗 Um link serve para:", options: ["Ir para outra página", "Apagar site", "Fechar internet"], correct: 0 },
-            { question: "📋 Uma lista ajuda a:", options: ["Organizar itens", "Misturar coisas", "Apagar texto"], correct: 0 },
-
-            { question: "📦 Em HTML podemos agrupar coisas em:", options: ["Caixas", "Geladeiras", "Sapatos"], correct: 0 },
-            { question: "🧱 Construir um site é como:", options: ["Montar blocos", "Quebrar brinquedos", "Dormir"], correct: 0 },
-            { question: "📄 Uma página HTML pode ter:", options: ["Texto e imagens", "Só silêncio", "Só números"], correct: 0 },
-            { question: "🖼 Fotos ajudam o site a:", options: ["Explicar melhor", "Confundir", "Apagar texto"], correct: 0 },
-            { question: "📱 Um site bom funciona em:", options: ["Celular e computador", "Só TV", "Só rádio"], correct: 0 },
-
-            { question: "🌐 Um site pode ter:", options: ["Várias páginas", "Só uma letra", "Só números"], correct: 0 },
-            { question: "📋 Listas são usadas para:", options: ["Organizar ideias", "Misturar coisas", "Apagar conteúdo"], correct: 0 },
-            { question: "🧠 Criar páginas precisa de:", options: ["Planejamento", "Sorte", "Magia"], correct: 0 },
-            { question: "📄 Um título ajuda o leitor a:", options: ["Entender o assunto", "Dormir", "Fechar site"], correct: 0 },
-            { question: "🖼 Imagens deixam o site:", options: ["Mais interessante", "Quebrado", "Invisível"], correct: 0 },
-
-            { question: "📦 Uma caixa no site pode guardar:", options: ["Texto e imagens", "Sapatos", "Comida"], correct: 0 },
-            { question: "🌐 HTML ajuda a criar:", options: ["Estrutura da página", "Som do site", "Internet"], correct: 0 },
-            { question: "🎨 CSS ajuda a:", options: ["Mudar cores", "Criar comida", "Apagar site"], correct: 0 },
-            { question: "⚡ JavaScript ajuda o site a:", options: ["Reagir ao clique", "Dormir", "Sumir"], correct: 0 },
-            { question: "📱 Um site responsivo:", options: ["Funciona em várias telas", "Quebra", "Desaparece"], correct: 0 },
-
-            { question: "📋 Uma lista pode mostrar:", options: ["Itens organizados", "Som", "Vídeo"], correct: 0 },
-            { question: "🧱 HTML funciona como:", options: ["Estrutura de uma casa", "Uma música", "Um sapato"], correct: 0 },
-            { question: "🖼 Imagens no site mostram:", options: ["Fotos", "Cheiros", "Temperatura"], correct: 0 },
-            { question: "📄 Texto no site serve para:", options: ["Explicar coisas", "Apagar páginas", "Desligar internet"], correct: 0 },
-            { question: "🌐 Sites podem ensinar:", options: ["Muitas coisas", "Nada", "Só silêncio"], correct: 0 },
-
-            { question: "📦 Organizar conteúdo ajuda:", options: ["Usuários entenderem", "Confundir", "Apagar site"], correct: 0 },
-            { question: "📋 Listas ajudam a:", options: ["Mostrar passos", "Esconder conteúdo", "Apagar dados"], correct: 0 },
-            { question: "🧠 Programar ajuda a:", options: ["Criar tecnologia", "Dormir", "Apagar internet"], correct: 0 },
-            { question: "📱 Sites são vistos em:", options: ["Muitos dispositivos", "Só um celular", "Só TV"], correct: 0 },
-            { question: "🌐 Criar sites é:", options: ["Desenvolvimento web", "Dormir", "Correr"], correct: 0 },
-
-            { question: "📄 Uma página HTML tem:", options: ["Conteúdo", "Só números", "Só sons"], correct: 0 },
-            { question: "🧱 Um site é feito de:", options: ["Várias partes", "Uma roda", "Um motor"], correct: 0 },
-            { question: "🖼 Uma imagem ajuda a:", options: ["Mostrar algo visual", "Esconder texto", "Apagar site"], correct: 0 },
-            { question: "📋 Organizar ideias no site:", options: ["Ajuda o leitor", "Confunde", "Apaga página"], correct: 0 },
-            { question: "🌐 Internet permite:", options: ["Compartilhar sites", "Apagar computadores", "Dormir"], correct: 0 },
-
-            { question: "🧠 Programadores criam:", options: ["Sites e apps", "Montanhas", "Oceanos"], correct: 0 },
-            { question: "📱 Pessoas acessam sites usando:", options: ["Navegador", "Geladeira", "Rádio"], correct: 0 },
-            { question: "🧱 HTML organiza:", options: ["Conteúdo da página", "Comida", "Roupas"], correct: 0 },
-            { question: "📄 Um texto grande pode ser:", options: ["Vários parágrafos", "Só um número", "Nada"], correct: 0 },
-            { question: "🖼 Fotos ajudam a:", options: ["Explicar visualmente", "Apagar conteúdo", "Quebrar site"], correct: 0 },
-
-            { question: "📦 Agrupar conteúdo ajuda:", options: ["Organizar página", "Confundir leitor", "Apagar texto"], correct: 0 },
-            { question: "🌐 Criar páginas é:", options: ["Construir na web", "Dormir", "Correr"], correct: 0 },
-            { question: "🧠 Aprender HTML é:", options: ["Aprender a criar sites", "Aprender a cozinhar", "Aprender a voar"], correct: 0 }
+            { question: "🧠 Pensar ajuda a:", options: ["Criar sites", "Quebrar sites", "Apagar sites"], correct: 0 },
+            { question: "🚀 Aprender programação é:", options: ["Criar tecnologia", "Dormir", "Desistir"], correct: 0 }
 
         ],
+    
+    2: [
 
-        3: [
+        { question: "🏷 O título principal de uma página é:", options: ["Título", "Imagem", "Vídeo"], correct: 0 },
+        { question: "📝 Um parágrafo serve para:", options: ["Escrever texto", "Mostrar vídeo", "Apagar site"], correct: 0 },
+        { question: "🖼 Para mostrar uma foto no site usamos:", options: ["Imagem", "Lista", "Tabela"], correct: 0 },
+        { question: "🔗 Um link serve para:", options: ["Ir para outra página", "Apagar site", "Fechar internet"], correct: 0 },
+        { question: "📋 Uma lista ajuda a:", options: ["Organizar itens", "Misturar coisas", "Apagar texto"], correct: 0 },
 
-            { question: "🧱 HTML cria:", options: ["Estrutura do site", "Cores", "Internet"], correct: 0 },
-            { question: "🎨 CSS muda:", options: ["Estilo e cores", "Estrutura", "Servidor"], correct: 0 },
-            { question: "⚡ JavaScript faz:", options: ["Interação no site", "Cores", "Fotos"], correct: 0 },
-            { question: "📄 Um site pode ter:", options: ["Várias páginas", "Só uma letra", "Nada"], correct: 0 },
-            { question: "🌐 Sites ficam disponíveis:", options: ["Na internet", "Na mochila", "No bolso"], correct: 0 },
+        { question: "📦 Em HTML podemos agrupar coisas em:", options: ["Caixas", "Geladeiras", "Sapatos"], correct: 0 },
+        { question: "🧱 Construir um site é como:", options: ["Montar blocos", "Quebrar brinquedos", "Dormir"], correct: 0 },
+        { question: "📄 Uma página HTML pode ter:", options: ["Texto e imagens", "Só silêncio", "Só números"], correct: 0 },
+        { question: "🖼 Fotos ajudam o site a:", options: ["Explicar melhor", "Confundir", "Apagar texto"], correct: 0 },
+        { question: "📱 Um site bom funciona em:", options: ["Celular e computador", "Só TV", "Só rádio"], correct: 0 },
 
-            { question: "🧠 Programar é:", options: ["Dar instruções ao computador", "Dormir", "Cantar"], correct: 0 },
-            { question: "📦 Organizar partes do site ajuda:", options: ["Na leitura", "Confundir", "Apagar página"], correct: 0 },
-            { question: "📋 Listas ajudam a:", options: ["Mostrar passos", "Apagar dados", "Misturar conteúdo"], correct: 0 },
-            { question: "🖼 Imagens ajudam o site a:", options: ["Explicar melhor", "Quebrar", "Sumir"], correct: 0 },
-            { question: "🔗 Links conectam:", options: ["Páginas", "Sapatos", "Pratos"], correct: 0 },
+        { question: "🌐 Um site pode ter:", options: ["Várias páginas", "Só uma letra", "Só números"], correct: 0 },
+        { question: "📋 Listas são usadas para:", options: ["Organizar ideias", "Misturar coisas", "Apagar conteúdo"], correct: 0 },
+        { question: "🧠 Criar páginas precisa de:", options: ["Planejamento", "Sorte", "Magia"], correct: 0 },
+        { question: "📄 Um título ajuda o leitor a:", options: ["Entender o assunto", "Dormir", "Fechar site"], correct: 0 },
+        { question: "🖼 Imagens deixam o site:", options: ["Mais interessante", "Quebrado", "Invisível"], correct: 0 },
 
-            { question: "📱 Sites modernos funcionam em:", options: ["Muitos dispositivos", "Só computador", "Só TV"], correct: 0 },
-            { question: "🌐 Navegador serve para:", options: ["Abrir sites", "Criar comida", "Apagar internet"], correct: 0 },
-            { question: "🧱 HTML funciona como:", options: ["Esqueleto do site", "Roupa", "Sapato"], correct: 0 },
-            { question: "🎨 CSS funciona como:", options: ["Roupa do site", "Motor", "Bateria"], correct: 0 },
-            { question: "⚡ JavaScript funciona como:", options: ["Cérebro do site", "Sapato", "Chapéu"], correct: 0 },
+        { question: "📦 Uma caixa no site pode guardar:", options: ["Texto e imagens", "Sapatos", "Comida"], correct: 0 },
+        { question: "🌐 HTML ajuda a criar:", options: ["Estrutura da página", "Som do site", "Internet"], correct: 0 },
+        { question: "🎨 CSS ajuda a:", options: ["Mudar cores", "Criar comida", "Apagar site"], correct: 0 },
+        { question: "⚡ JavaScript ajuda o site a:", options: ["Reagir ao clique", "Dormir", "Sumir"], correct: 0 },
+        { question: "📱 Um site responsivo:", options: ["Funciona em várias telas", "Quebra", "Desaparece"], correct: 0 },
 
-            { question: "🧠 Criar sites precisa:", options: ["Pensamento lógico", "Sorte", "Magia"], correct: 0 },
-            { question: "📦 Organizar conteúdo ajuda:", options: ["Usuários entenderem", "Confundir", "Apagar"], correct: 0 },
-            { question: "📄 Um site pode ensinar:", options: ["Qualquer assunto", "Nada", "Só números"], correct: 0 },
-            { question: "🖼 Imagens ajudam a:", options: ["Explicar visualmente", "Apagar texto", "Quebrar site"], correct: 0 },
-            { question: "🔗 Um link leva para:", options: ["Outra página", "Outra casa", "Outro planeta"], correct: 0 },
+        { question: "📋 Uma lista pode mostrar:", options: ["Itens organizados", "Som", "Vídeo"], correct: 0 },
+        { question: "🧱 HTML funciona como:", options: ["Estrutura de uma casa", "Uma música", "Um sapato"], correct: 0 },
+        { question: "🖼 Imagens no site mostram:", options: ["Fotos", "Cheiros", "Temperatura"], correct: 0 },
+        { question: "📄 Texto no site serve para:", options: ["Explicar coisas", "Apagar páginas", "Desligar internet"], correct: 0 },
+        { question: "🌐 Sites podem ensinar:", options: ["Muitas coisas", "Nada", "Só silêncio"], correct: 0 },
 
-            { question: "🌐 A web conecta:", options: ["Pessoas do mundo", "Sapatos", "Pratos"], correct: 0 },
-            { question: "📱 Sites podem ser vistos em:", options: ["Celular e computador", "Só TV", "Só rádio"], correct: 0 },
-            { question: "🧠 Programadores resolvem:", options: ["Problemas", "Montanhas", "Oceanos"], correct: 0 },
-            { question: "🧱 Construir site é:", options: ["Montar estrutura", "Dormir", "Correr"], correct: 0 },
-            { question: "📄 Texto ajuda a:", options: ["Explicar ideias", "Apagar páginas", "Fechar site"], correct: 0 },
+        { question: "📦 Organizar conteúdo ajuda:", options: ["Usuários entenderem", "Confundir", "Apagar site"], correct: 0 },
+        { question: "📋 Listas ajudam a:", options: ["Mostrar passos", "Esconder conteúdo", "Apagar dados"], correct: 0 },
+        { question: "🧠 Programar ajuda a:", options: ["Criar tecnologia", "Dormir", "Apagar internet"], correct: 0 },
+        { question: "📱 Sites são vistos em:", options: ["Muitos dispositivos", "Só um celular", "Só TV"], correct: 0 },
+        { question: "🌐 Criar sites é:", options: ["Desenvolvimento web", "Dormir", "Correr"], correct: 0 },
 
-            { question: "🖼 Fotos ajudam a:", options: ["Mostrar coisas", "Apagar site", "Quebrar página"], correct: 0 },
-            { question: "📋 Listas ajudam a:", options: ["Organizar passos", "Misturar ideias", "Apagar dados"], correct: 0 },
-            { question: "🌐 Internet permite:", options: ["Compartilhar informações", "Apagar computadores", "Dormir"], correct: 0 },
-            { question: "🧠 Aprender programação:", options: ["Desenvolve lógica", "Apaga memória", "Confunde"], correct: 0 },
-            { question: "📦 Agrupar elementos:", options: ["Organiza página", "Quebra site", "Apaga texto"], correct: 0 },
+        { question: "📄 Uma página HTML tem:", options: ["Conteúdo", "Só números", "Só sons"], correct: 0 },
+        { question: "🧱 Um site é feito de:", options: ["Várias partes", "Uma roda", "Um motor"], correct: 0 },
+        { question: "🖼 Uma imagem ajuda a:", options: ["Mostrar algo visual", "Esconder texto", "Apagar site"], correct: 0 },
+        { question: "📋 Organizar ideias no site:", options: ["Ajuda o leitor", "Confunde", "Apaga página"], correct: 0 },
+        { question: "🌐 Internet permite:", options: ["Compartilhar sites", "Apagar computadores", "Dormir"], correct: 0 },
 
-            { question: "📄 Um bom site precisa:", options: ["Ser organizado", "Ser bagunçado", "Ser vazio"], correct: 0 },
-            { question: "🧠 Pensar antes de criar:", options: ["Melhora o site", "Quebra site", "Apaga conteúdo"], correct: 0 },
-            { question: "🌐 Criar tecnologia é:", options: ["Inovar", "Dormir", "Correr"], correct: 0 },
-            { question: "📱 Sites são usados para:", options: ["Aprender e comunicar", "Dormir", "Correr"], correct: 0 },
-            { question: "🚀 Aprender programação:", options: ["Abre oportunidades", "Apaga internet", "Fecha computador"], correct: 0 }
+        { question: "🧠 Programadores criam:", options: ["Sites e apps", "Montanhas", "Oceanos"], correct: 0 },
+        { question: "📱 Pessoas acessam sites usando:", options: ["Navegador", "Geladeira", "Rádio"], correct: 0 },
+        { question: "🧱 HTML organiza:", options: ["Conteúdo da página", "Comida", "Roupas"], correct: 0 },
+        { question: "📄 Um texto grande pode ser:", options: ["Vários parágrafos", "Só um número", "Nada"], correct: 0 },
+        { question: "🖼 Fotos ajudam a:", options: ["Explicar visualmente", "Apagar conteúdo", "Quebrar site"], correct: 0 },
 
-        ]
+        { question: "📦 Agrupar conteúdo ajuda:", options: ["Organizar página", "Confundir leitor", "Apagar texto"], correct: 0 },
+        { question: "🌐 Criar páginas é:", options: ["Construir na web", "Dormir", "Correr"], correct: 0 },
+        { question: "🧠 Aprender HTML é:", options: ["Aprender a criar sites", "Aprender a cozinhar", "Aprender a voar"], correct: 0 }
 
-    },
+    ],
+
+    3: [
+
+        { question: "🧱 HTML cria:", options: ["Estrutura do site", "Cores", "Internet"], correct: 0 },
+        { question: "🎨 CSS muda:", options: ["Estilo e cores", "Estrutura", "Servidor"], correct: 0 },
+        { question: "⚡ JavaScript faz:", options: ["Interação no site", "Cores", "Fotos"], correct: 0 },
+        { question: "📄 Um site pode ter:", options: ["Várias páginas", "Só uma letra", "Nada"], correct: 0 },
+        { question: "🌐 Sites ficam disponíveis:", options: ["Na internet", "Na mochila", "No bolso"], correct: 0 },
+
+        { question: "🧠 Programar é:", options: ["Dar instruções ao computador", "Dormir", "Cantar"], correct: 0 },
+        { question: "📦 Organizar partes do site ajuda:", options: ["Na leitura", "Confundir", "Apagar página"], correct: 0 },
+        { question: "📋 Listas ajudam a:", options: ["Mostrar passos", "Apagar dados", "Misturar conteúdo"], correct: 0 },
+        { question: "🖼 Imagens ajudam o site a:", options: ["Explicar melhor", "Quebrar", "Sumir"], correct: 0 },
+        { question: "🔗 Links conectam:", options: ["Páginas", "Sapatos", "Pratos"], correct: 0 },
+
+        { question: "📱 Sites modernos funcionam em:", options: ["Muitos dispositivos", "Só computador", "Só TV"], correct: 0 },
+        { question: "🌐 Navegador serve para:", options: ["Abrir sites", "Criar comida", "Apagar internet"], correct: 0 },
+        { question: "🧱 HTML funciona como:", options: ["Esqueleto do site", "Roupa", "Sapato"], correct: 0 },
+        { question: "🎨 CSS funciona como:", options: ["Roupa do site", "Motor", "Bateria"], correct: 0 },
+        { question: "⚡ JavaScript funciona como:", options: ["Cérebro do site", "Sapato", "Chapéu"], correct: 0 },
+
+        { question: "🧠 Criar sites precisa:", options: ["Pensamento lógico", "Sorte", "Magia"], correct: 0 },
+        { question: "📦 Organizar conteúdo ajuda:", options: ["Usuários entenderem", "Confundir", "Apagar"], correct: 0 },
+        { question: "📄 Um site pode ensinar:", options: ["Qualquer assunto", "Nada", "Só números"], correct: 0 },
+        { question: "🖼 Imagens ajudam a:", options: ["Explicar visualmente", "Apagar texto", "Quebrar site"], correct: 0 },
+        { question: "🔗 Um link leva para:", options: ["Outra página", "Outra casa", "Outro planeta"], correct: 0 },
+
+        { question: "🌐 A web conecta:", options: ["Pessoas do mundo", "Sapatos", "Pratos"], correct: 0 },
+        { question: "📱 Sites podem ser vistos em:", options: ["Celular e computador", "Só TV", "Só rádio"], correct: 0 },
+        { question: "🧠 Programadores resolvem:", options: ["Problemas", "Montanhas", "Oceanos"], correct: 0 },
+        { question: "🧱 Construir site é:", options: ["Montar estrutura", "Dormir", "Correr"], correct: 0 },
+        { question: "📄 Texto ajuda a:", options: ["Explicar ideias", "Apagar páginas", "Fechar site"], correct: 0 },
+
+        { question: "🖼 Fotos ajudam a:", options: ["Mostrar coisas", "Apagar site", "Quebrar página"], correct: 0 },
+        { question: "📋 Listas ajudam a:", options: ["Organizar passos", "Misturar ideias", "Apagar dados"], correct: 0 },
+        { question: "🌐 Internet permite:", options: ["Compartilhar informações", "Apagar computadores", "Dormir"], correct: 0 },
+        { question: "🧠 Aprender programação:", options: ["Desenvolve lógica", "Apaga memória", "Confunde"], correct: 0 },
+        { question: "📦 Agrupar elementos:", options: ["Organiza página", "Quebra site", "Apaga texto"], correct: 0 },
+
+        { question: "📄 Um bom site precisa:", options: ["Ser organizado", "Ser bagunçado", "Ser vazio"], correct: 0 },
+        { question: "🧠 Pensar antes de criar:", options: ["Melhora o site", "Quebra site", "Apaga conteúdo"], correct: 0 },
+        { question: "🌐 Criar tecnologia é:", options: ["Inovar", "Dormir", "Correr"], correct: 0 },
+        { question: "📱 Sites são usados para:", options: ["Aprender e comunicar", "Dormir", "Correr"], correct: 0 },
+        { question: "🚀 Aprender programação:", options: ["Abre oportunidades", "Apaga internet", "Fecha computador"], correct: 0 }
+
+    ]
+
+},
 
     css: {
 

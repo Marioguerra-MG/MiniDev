@@ -171,11 +171,11 @@ button:active {
 
 .certificado {
 
-  width: 800px;
+  width: 1280px;
 
   padding: 40px;
 
-  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  background-color: white;
 
   color: white;
 

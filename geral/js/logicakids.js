@@ -4,8 +4,8 @@
 
 let currentCourse = localStorage.getItem("course") || "logic";
 
-const TOTAL_PHASES = 3;
-const QUESTIONS_PER_PHASE = 50;
+const TOTAL_PHASES = 3; // número de fases do curso
+const QUESTIONS_PER_PHASE = 50; // máximo de perguntas por fase
 
 function getToday(){
   return new Date().toISOString().split("T")[0];
@@ -21,7 +21,6 @@ let todayQuestions = [];
 let childName = localStorage.getItem("childName");
 
 function askChildName(){
-
   if(childName) return;
 
   const box = document.createElement("div");
@@ -29,14 +28,10 @@ function askChildName(){
 
   box.innerHTML = `
   <div class="name-card">
-
     <h2>👋 Olá pequeno programador!</h2>
     <p>Como você se chama?</p>
-
     <input id="nameInput" placeholder="Digite seu nome" maxlength="15"/>
-
     <button onclick="saveChildName()">Começar 🚀</button>
-
   </div>
   `;
 
@@ -45,11 +40,9 @@ function askChildName(){
   setTimeout(()=>{
     document.getElementById("nameInput").focus();
   },200)
-
 }
 
 function saveChildName(){
-
   const input = document.getElementById("nameInput");
   let name = input.value.trim();
 
@@ -61,7 +54,6 @@ function saveChildName(){
   localStorage.setItem("childName", name);
 
   document.querySelector(".name-box").remove();
-
 }
 
 /* ========================= */
@@ -69,7 +61,6 @@ function saveChildName(){
 /* ========================= */
 
 function getCourseName(course){
-
   const courses = {
     logic: "Lógica de Programação",
     html: "HTML",
@@ -77,64 +68,51 @@ function getCourseName(course){
     javascript: "JavaScript",
     ai: "Inteligência Artificial 🤖"
   };
-
   return courses[course] || course;
-
 }
 
 /* ========================= */
 /* PROGRESSO */
 /* ========================= */
 
-const STORAGE_KEY = `logicakids_progress_${currentCourse}`;
-
-let progress = JSON.parse(localStorage.getItem(STORAGE_KEY));
-
-if(!progress){
-
-  progress = {
-    startDate: today,
-    currentPhase: 1,
-    currentQuestion: 0,
-    xp: 0
-  };
-
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+function initProgress(course){
+  const key = `logicakids_progress_${course}`;
+  if(!localStorage.getItem(key)){
+    localStorage.setItem(key, JSON.stringify({
+      startDate: today,
+      currentPhase: 1,
+      currentQuestion: 0,
+      xp: 0
+    }));
+  }
 }
+
+initProgress(currentCourse);
+
+const STORAGE_KEY = `logicakids_progress_${currentCourse}`;
+let progress = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
 /* ========================= */
 /* GERAR PERGUNTA */
 /* ========================= */
 
 function generateQuestion(){
-
-  if(!questionBank || !questionBank[currentCourse]){
-    document.getElementById("mission").innerHTML =
-      "⚠️ Perguntas ainda não carregadas!";
-    return;
-  }
+  if(!questionBank || !questionBank[currentCourse]) return;
 
   const phaseQuestions = questionBank[currentCourse][progress.currentPhase];
-
-  if(!phaseQuestions) return;
+  if(!phaseQuestions || phaseQuestions.length === 0) return;
 
   if(todayQuestions.length === 0){
-
     let shuffled = [...phaseQuestions];
     shuffled.sort(()=> Math.random() - 0.5);
-
     const limit = Math.min(QUESTIONS_PER_PHASE, shuffled.length);
-
     todayQuestions = shuffled.slice(0, limit);
-
   }
 
   const question = todayQuestions[progress.currentQuestion];
-
   if(!question) return;
 
   return shuffleQuestion(question);
-
 }
 
 /* ========================= */
@@ -142,15 +120,11 @@ function generateQuestion(){
 /* ========================= */
 
 function updateStatus(){
-
   const level = Math.floor(progress.xp / 50) + 1;
-
   const xpEl = document.getElementById("xp");
   const levelEl = document.getElementById("level");
-
   if(xpEl) xpEl.innerText = progress.xp;
   if(levelEl) levelEl.innerText = level;
-
 }
 
 /* ========================= */
@@ -158,21 +132,16 @@ function updateStatus(){
 /* ========================= */
 
 function updateProgressBar(){
-
   const phaseQuestions = questionBank[currentCourse][progress.currentPhase];
-
-  if(!phaseQuestions) return;
+  if(!phaseQuestions || phaseQuestions.length === 0) return;
 
   const phaseLimit = Math.min(QUESTIONS_PER_PHASE, phaseQuestions.length);
-
   const percent = (progress.currentQuestion / phaseLimit) * 100;
 
   const bar = document.getElementById("progressFill");
-
   if(bar){
     bar.style.width = percent + "%";
   }
-
 }
 
 /* ========================= */
@@ -181,77 +150,67 @@ function updateProgressBar(){
 
 function loadMission(){
 
+  const phaseQuestions = questionBank[currentCourse][progress.currentPhase];
+
+  // Curso finalizado
   if(progress.currentPhase > TOTAL_PHASES){
-
     document.getElementById("mission").innerHTML = `
-    
-    <h2>🏆 Parabéns ${childName}!</h2>
-    
-    <p>Você terminou o curso de ${getCourseName(currentCourse)}</p>
-    
-    <button onclick="finalizarCurso()">📜 Baixar Certificado</button>
-    
+      <h2>🏆 Parabéns ${childName}!</h2>
+      <p>Você terminou o curso de ${getCourseName(currentCourse)}</p>
+      <button onclick="baixarCertificadoFinal()">📜 Baixar Certificado</button>
     `;
-
     return;
   }
 
-  const phaseQuestions = questionBank[currentCourse][progress.currentPhase];
+  // Se a fase não existir ou estiver vazia, pula para a próxima
+  if(!phaseQuestions || phaseQuestions.length === 0){
+    progress.currentPhase++;
+    progress.currentQuestion = 0;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    loadMission();
+    return;
+  }
+
   const phaseLimit = Math.min(QUESTIONS_PER_PHASE, phaseQuestions.length);
 
   if(progress.currentQuestion >= phaseLimit){
-
     document.getElementById("mission").innerHTML = `
-
       <h2>🎉 Fase ${progress.currentPhase} Concluída!</h2>
-
       <button onclick="copyDayMessage()">Compartilhar Conquista</button>
-
       <button onclick="finalizarFase()">Continuar 🚀</button>
-
     `;
-
     return;
   }
 
   const q = generateQuestion();
-
   if(!q) return;
 
   let html = `
-  
-  <p>🎮 ${getCourseName(currentCourse)} • Fase ${progress.currentPhase}</p>
-
-  <div class="status">
-      ⭐ XP: <span id="xp">${progress.xp}</span> |
-      🏆 Nível: <span id="level">${Math.floor(progress.xp / 50) + 1}</span>
-  </div>
-
-  <div class="progress-bar">
-     <div class="progress-fill" id="progressFill"></div>
-  </div>
-
-  <p class="progress-text">
-  Pergunta ${progress.currentQuestion + 1} de ${phaseLimit}
-  </p>
-
-  <h3 class="question">${q.question}</h3>
+    <p>🎮 ${getCourseName(currentCourse)} • Fase ${progress.currentPhase}</p>
+    <div class="status">
+        ⭐ XP: <span id="xp">${progress.xp}</span> |
+        🏆 Nível: <span id="level">${Math.floor(progress.xp / 50) + 1}</span>
+    </div>
+    <div class="progress-bar">
+       <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <p class="progress-text">
+      Pergunta ${progress.currentQuestion + 1} de ${phaseLimit}
+    </p>
+    <h3 class="question">${q.question}</h3>
   `;
 
   q.options.forEach((opt,index)=>{
-
     html += `
-    <div class="option" onclick="selectOption(${index},${q.correct})">
-    ${opt}
-    </div>
+      <div class="option" onclick="selectOption(${index},${q.correct})">
+        ${opt}
+      </div>
     `;
-
   });
 
   document.getElementById("mission").innerHTML = html;
 
   updateProgressBar();
-
 }
 
 /* ========================= */
@@ -259,7 +218,6 @@ function loadMission(){
 /* ========================= */
 
 function selectOption(index,correct){
-
   if(index !== correct){
     showToast("😅 Quase! Tente novamente!", "error");
     return;
@@ -278,7 +236,6 @@ function selectOption(index,correct){
   setTimeout(()=>{
     loadMission();
   },700);
-
 }
 
 /* ========================= */
@@ -286,8 +243,15 @@ function selectOption(index,correct){
 /* ========================= */
 
 function finalizarFase(){
-
   const phaseQuestions = questionBank[currentCourse][progress.currentPhase];
+  if(!phaseQuestions || phaseQuestions.length === 0){
+    progress.currentPhase++;
+    progress.currentQuestion = 0;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    loadMission();
+    return;
+  }
+
   const phaseLimit = Math.min(QUESTIONS_PER_PHASE, phaseQuestions.length);
 
   if(progress.currentQuestion < phaseLimit){
@@ -295,24 +259,22 @@ function finalizarFase(){
     return;
   }
 
-  progress.currentPhase++;
-  progress.currentQuestion = 0;
-
-  todayQuestions = [];
-
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-
-  if(progress.currentPhase > TOTAL_PHASES){
-    loadMission();
+  // desbloquear próximo curso apenas se o usuário terminou a última fase do curso
+  if(progress.currentPhase === TOTAL_PHASES){ 
+    finalizarCurso();
     return;
   }
+
+  progress.currentPhase++;
+  progress.currentQuestion = 0;
+  todayQuestions = [];
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
 
   showToast("🚀 Nova fase desbloqueada!", "success");
 
   setTimeout(()=>{
     loadMission();
   },500);
-
 }
 
 /* ========================= */
@@ -320,10 +282,8 @@ function finalizarFase(){
 /* ========================= */
 
 function copyDayMessage(){
-
-const level = Math.floor(progress.xp / 50) + 1;
-
-const text =
+  const level = Math.floor(progress.xp / 50) + 1;
+  const text =
 `🏆════════════════════════🏆
 👨‍💻 ${childName} concluiu a Fase ${progress.currentPhase}
 📚 Curso: ${getCourseName(currentCourse)}
@@ -332,10 +292,8 @@ const text =
 🚀 LogicaKids - Programação para pequenos gênios!
 `;
 
-navigator.clipboard.writeText(text);
-
-showToast("📋 Conquista copiada!", "success");
-
+  navigator.clipboard.writeText(text);
+  showToast("📋 Conquista copiada!", "success");
 }
 
 /* ========================= */
@@ -343,9 +301,7 @@ showToast("📋 Conquista copiada!", "success");
 /* ========================= */
 
 function gerarCertificadoFinal(){
-
   const cert = document.getElementById("certificado");
-
   if(!cert) return;
 
   const level = Math.floor(progress.xp / 50) + 1;
@@ -359,39 +315,62 @@ function gerarCertificadoFinal(){
   cert.style.display = "block";
 
   html2canvas(cert).then(canvas=>{
-
     const link = document.createElement("a");
-
     link.download = `certificado-${courseName}.png`;
-
     link.href = canvas.toDataURL();
-
     link.click();
-
     cert.style.display = "none";
-
   });
-
 }
 
 /* ========================= */
-/* FINALIZAR CURSO */
+/* FINALIZAR CURSO - ALTERADO */
 /* ========================= */
 
 function finalizarCurso(){
+  // Apenas marca o curso como finalizado, sem redirecionar
+  progress.currentPhase = TOTAL_PHASES + 1;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  showToast("🏆 Curso concluído! Baixe seu certificado 📜", "success");
+  loadMission(); // Atualiza a tela para mostrar o botão de baixar
+}
 
+/* ========================= */
+/* BAIXAR CERTIFICADO FINAL - NOVA FUNÇÃO */
+/* ========================= */
+
+function baixarCertificadoFinal(){
   gerarCertificadoFinal();
 
-  progress.currentPhase = TOTAL_PHASES + 1;
+  // Desbloqueia o próximo curso após baixar
+  unlockNextCourse(currentCourse);
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-
-  showToast("🏆 Curso concluído!", "success");
-
+  // Redireciona para a página inicial após 2s
   setTimeout(()=>{
     window.location.href = "../../index.html";
   },2000);
+}
 
+/* ========================= */
+/* DESBLOQUEAR PRÓXIMO CURSO */
+/* ========================= */
+
+function unlockNextCourse(course){
+  const courses = ["logic","html","css","javascript","ai"];
+  const index = courses.indexOf(course);
+  if(index === -1 || index === courses.length -1) return;
+
+  const nextCourse = courses[index + 1];
+  const nextKey = `logicakids_progress_${nextCourse}`;
+
+  if(!localStorage.getItem(nextKey)){
+    localStorage.setItem(nextKey, JSON.stringify({
+      startDate: getToday(),
+      currentPhase: 1,
+      currentQuestion: 0,
+      xp: 0
+    }));
+  }
 }
 
 /* ========================= */
@@ -399,16 +378,12 @@ function finalizarCurso(){
 /* ========================= */
 
 function shuffleQuestion(question){
-
   let options = [...question.options];
   let correctAnswer = options[question.correct];
 
   for(let i = options.length -1; i > 0; i--){
-
     const j = Math.floor(Math.random()*(i+1));
-
     [options[i],options[j]]=[options[j],options[i]];
-
   }
 
   const newCorrect = options.indexOf(correctAnswer);
@@ -418,7 +393,6 @@ function shuffleQuestion(question){
     options: options,
     correct: newCorrect
   };
-
 }
 
 /* ========================= */
@@ -426,11 +400,9 @@ function shuffleQuestion(question){
 /* ========================= */
 
 function selectCourse(course){
-
   localStorage.setItem("course",course);
-
+  initProgress(course);
   location.reload();
-
 }
 
 /* ========================= */
@@ -438,29 +410,18 @@ function selectCourse(course){
 /* ========================= */
 
 function showToast(message,type){
-
   const toast = document.createElement("div");
-
   toast.classList.add("toast");
-
   if(type) toast.classList.add(type);
-
   toast.innerText = message;
-
   document.body.appendChild(toast);
 
   setTimeout(()=> toast.classList.add("show"),100);
 
   setTimeout(()=>{
-
     toast.classList.remove("show");
-
-    setTimeout(()=>{
-      document.body.removeChild(toast);
-    },400);
-
+    setTimeout(()=>{ document.body.removeChild(toast); },400);
   },2000);
-
 }
 
 /* ========================= */
