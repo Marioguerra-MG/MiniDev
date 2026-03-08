@@ -226,14 +226,29 @@ button:active {
 }
 
 
-.option.correct{
-background:#22c55e;
-box-shadow:0 5px 0 #15803d;
+/* ========================= */
+/* ANIMAÇÕES RESPOSTA */
+/* ========================= */
+
+
+/* ACERTO */
+
+.correct {
+  background: #16a34a !important;
+  animation: pulse 0.5s;
 }
 
-.option.wrong{
-background:#ef4444;
-box-shadow:0 5px 0 #b91c1c;
+@keyframes pulse {
+  0% {transform: scale(1)}
+  50% {transform: scale(1.1)}
+  100% {transform: scale(1)}
+}
+
+/* ERRO */
+
+.wrong {
+  background: #dc2626 !important;
+  animation: shake 0.4s;
 }
 
 /* ========================= */
@@ -486,6 +501,15 @@ hr{
 /* ========================= */
 /* RESPONSIVO */
 /* ========================= */
+
+
+@keyframes shake {
+  0% {transform: translateX(0)}
+  25% {transform: translateX(-5px)}
+  50% {transform: translateX(5px)}
+  75% {transform: translateX(-5px)}
+  100% {transform: translateX(0)}
+}
 
 @media(max-width:480px) {
 

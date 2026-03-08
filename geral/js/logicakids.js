@@ -217,11 +217,33 @@ function loadMission(){
 /* RESPOSTA */
 /* ========================= */
 
-function selectOption(index,correct){
+function selectOption(index, correct){
+
+  const options = document.querySelectorAll(".option");
+  const selected = options[index];
+
   if(index !== correct){
+
+    selected.classList.add("wrong");
+
     showToast("😅 Quase! Tente novamente!", "error");
+
+    setTimeout(()=>{
+      selected.classList.remove("wrong");
+    },600);
+
     return;
   }
+
+  // ACERTO
+  selected.classList.add("correct");
+
+  // 🎉 CONFETE
+  confetti({
+    particleCount: 80,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
 
   progress.xp += 10;
   progress.currentQuestion++;
