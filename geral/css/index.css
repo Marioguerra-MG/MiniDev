@@ -50,22 +50,49 @@ body {
 /* MASCOTE */
 /* ========================= */
 
-.mascote {
-    font-size: 60px;
-    animation: bounce 2s infinite;
+.icone-curso{
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:220px;
+  height:90px;
+
+  margin:0 auto 15px auto;
+
+  background:#58cc02;
+
+  border-radius:22px;
+
+  color:white;
+
+  box-shadow:0 6px 0 #46a302;
+
+  transition:0.2s;
+
 }
 
-@keyframes bounce {
+/* texto dentro */
 
-    0%,
-    100% {
-        transform: translateY(0);
-    }
+.icone-curso h1{
 
-    50% {
-        transform: translateY(-8px);
-    }
+  font-size:32px;
+  margin:0;
+  color:white;
 
+}
+
+/* hover */
+
+.icone-curso:hover{
+  transform:translateY(-3px) scale(1.05);
+}
+
+/* clique */
+
+.icone-curso:active{
+  transform:translateY(3px);
 }
 
 /* ========================= */

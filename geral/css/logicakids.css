@@ -33,19 +33,54 @@ body {
   margin-top: 100px;
 }
 
-.voltar {
-  display: flex;
-  justify-content: end;
-  margin-bottom: 10px;
+.voltar{
+  display:flex;
+  justify-content:end;
+  margin-bottom:10px;
+}
+
+/* BOTÃO VOLTAR */
+
+.voltar a{
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:45px;
+  height:45px;
+
+  background: linear-gradient(135deg, #1cb0f6, #0ea5e9);
+
+  color:white;
+
+  border-radius:14px;
+
+  text-decoration:none;
+
+  font-size:20px;
+
+   box-shadow: 0 5px 0 #0c87c2;
+
+  transition:0.2s;
 
 }
 
 
-.voltar i {
-  color: black;
-  font-size: 25px;
+/* HOVER */
 
+.voltar a:hover{
+  transform:translateY(-2px) scale(1.05);
 }
+
+/* CLIQUE */
+
+.voltar a:active{
+  transform:translateY(3px);
+}
+
+
+
 
 /* ========================= */
 /* TITULOS */
@@ -79,53 +114,78 @@ h3 {
 /* BOTÕES */
 /* ========================= */
 
+/* ========================= */
+/* BOTÕES PADRÃO */
+/* ========================= */
+
 button {
 
   width: 100%;
 
-  background: #58cc02;
-
   border: none;
 
-  padding: 14px;
+  padding: 14px 10px;
 
-  border-radius: 18px;
+  border-radius: 20px;
+
+  font-size: 18px;
+  font-weight: bold;
 
   color: white;
 
   cursor: pointer;
 
-  font-size: 18px;
+  transition: 0.2s;
 
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  margin-top: 10px;
+  gap: 8px;
 
-  transition: transform .1s, box-shadow .1s;
+  min-height: 55px;
+
+  background: linear-gradient(135deg, #1cb0f6, #0ea5e9);
+  box-shadow: 0 5px 0 #0c87c2;
 
 }
+
+/* HOVER */
+
+button:hover {
+
+  transform: translateY(-2px) scale(1.03);
+
+}
+
+/* CLIQUE */
 
 button:active {
 
-  transform: scale(0.96);
-
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(3px);
 
 }
+
+/* ========================= */
+/* BOTÃO PRO */
+/* ========================= */
 
 .pro {
 
   background: linear-gradient(135deg, #9333ea, #6d28d9);
+  box-shadow: 0 5px 0 #5b21b6;
 
 }
-
 /* ========================= */
 /* OPÇÕES */
 /* ========================= */
 
 .option {
 
-  display: block;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
 
   background: linear-gradient(135deg, #1cb0f6, #0ea5e9);
 
@@ -133,7 +193,7 @@ button:active {
 
   padding: 14px;
 
-  border-radius: 16px;
+  border-radius: 18px;
 
   cursor: pointer;
 
@@ -143,14 +203,37 @@ button:active {
 
   font-weight: 600;
 
-  transition: transform .1s;
+  transition: 0.2s;
+
+  box-shadow: 0 5px 0 #0c87c2;
 
 }
 
+/* HOVER */
+
+.option:hover {
+
+  transform: translateY(-2px) scale(1.02);
+
+}
+
+/* CLIQUE */
+
 .option:active {
 
-  transform: scale(0.95);
+  transform: translateY(3px);
 
+}
+
+
+.option.correct{
+background:#22c55e;
+box-shadow:0 5px 0 #15803d;
+}
+
+.option.wrong{
+background:#ef4444;
+box-shadow:0 5px 0 #b91c1c;
 }
 
 /* ========================= */
@@ -391,6 +474,10 @@ button:active {
 
 }
 
+
+hr{
+  margin-top: 15px;
+}
 /* ========================= */
 /* RESPONSIVO */
 /* ========================= */
