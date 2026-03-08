@@ -12,17 +12,9 @@
 /* ========================= */
 
 body {
-
   background: linear-gradient(180deg, #ffd93d, #ffb703);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   min-height: 100vh;
-
   padding: 15px;
-
 }
 
 /* ========================= */
@@ -30,33 +22,29 @@ body {
 /* ========================= */
 
 .app {
-
   background: white;
-
   width: 100%;
   max-width: 420px;
-
   padding: 25px;
-
   border-radius: 25px;
-
   text-align: center;
-
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  margin: auto;
+  margin-top: 100px;
 }
 
-.voltar{
+.voltar {
   display: flex;
-  justify-content: end;margin-bottom: 10px;
-  
+  justify-content: end;
+  margin-bottom: 10px;
+
 }
 
 
-.voltar i{
+.voltar i {
   color: black;
   font-size: 25px;
-  
+
 }
 
 /* ========================= */
@@ -170,55 +158,76 @@ button:active {
 /* ========================= */
 
 .certificado {
-
-  width: 1280px;
-
-  padding: 40px;
-
-  background-color: white;
-
-  color: white;
-
+  width: 1200px;
+  height: 700px;
+  background: #ffffff;
+  color: #2e2e2e;
   text-align: center;
-
-  border-radius: 20px;
-
   display: none;
+  padding: 80px 100px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  font-family: "Times New Roman", serif;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
 }
 
-.certificado h1 {
+/* linhas decorativas */
 
-  font-size: 40px;
-
-  margin-bottom: 20px;
-
+.certificado::before,
+.certificado::after{
+  content:"";
+  position:absolute;
+  left:80px;
+  right:80px;
+  height:3px;
+  background:linear-gradient(to right,#050505,#000000,#000000);
 }
 
-.certificado h2 {
-
-  font-size: 36px;
-
-  margin: 10px 0;
-
-  color: #ffe066;
-
+.certificado::before{
+  top:30px;
 }
 
-.certificado h3 {
-
-  font-size: 28px;
-
-  margin: 10px 0;
-
+.certificado::after{
+  bottom:30px;
 }
 
-.cert-footer {
+.certificado h1{
+  font-size:48px;
+  margin-bottom:25px;
+}
 
-  margin-top: 25px;
+.certificado p{
+  font-size:22px;
+  margin:10px 0;
+}
 
-  font-size: 16px;
+.certificado h2{
+  font-size:40px;
+  margin:20px 0;
+  font-weight:700;
+}
 
+.certificado h3{
+  font-size:32px;
+  margin:15px 0;
+}
+
+.certificado > div{
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  margin-top:20px;
+}
+
+.cert-footer{
+  margin-top:40px;
+  font-size:18px;
+  color:#666;
 }
 
 /* ========================= */
