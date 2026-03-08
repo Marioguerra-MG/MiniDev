@@ -10,6 +10,7 @@ const questionBank = {
         1: [
 
             { question: "🚦 Se o sinal está vermelho você:", options: ["Para", "Corre", "Dança"], correct: 0 },
+        
             { question: "💡 Se o quarto está escuro você:", options: ["Acende a luz", "Chora", "Corre"], correct: 0 },
             { question: "🍎 Para comer uma maçã você:", options: ["Morde", "Joga fora", "Guarda no bolso"], correct: 0 },
             { question: "🛏 Quando está com sono você:", options: ["Dormir", "Correr", "Pular"], correct: 0 },
@@ -68,6 +69,7 @@ const questionBank = {
         2: [
 
             { question: "🤖 Programar um robô é:", options: ["Ensinar ele o que fazer", "Dar comida", "Colocar para dormir"], correct: 0 },
+            
             { question: "📦 Guardar uma informação é como:", options: ["Guardar em uma caixa", "Jogar fora", "Esconder"], correct: 0 },
             { question: "🔄 Algo que acontece várias vezes:", options: ["Repetir", "Parar", "Sumir"], correct: 0 },
             { question: "➕ 2 + 2 é:", options: ["4", "3", "5"], correct: 0 },
@@ -132,6 +134,7 @@ const questionBank = {
         3: [
 
             { question: "➕ 7 + 3 é:", options: ["10", "9", "11"], correct: 0 },
+            
             { question: "➖ 12 - 5 é:", options: ["7", "6", "8"], correct: 0 },
             { question: "✖️ 3 x 3 é:", options: ["9", "6", "12"], correct: 0 },
             { question: "➗ 10 ÷ 2 é:", options: ["5", "4", "6"], correct: 0 },
@@ -180,8 +183,10 @@ const questionBank = {
             { question: "🚀 Criar tecnologia significa:", options: ["Inventar soluções", "Destruir coisas", "Dormir"], correct: 0 },
             { question: "🤓 Quem gosta de aprender sempre é:", options: ["Curioso", "Preguiçoso", "Distraído"], correct: 0 },
             { question: "🧠 Resolver problemas melhora:", options: ["Inteligência", "Confusão", "Bagunça"], correct: 0 },
+            
             { question: "💻 Programar é:", options: ["Ensinar o computador", "Brigar com o computador", "Desligar o computador"], correct: 0 }
         ]
+
 
     },
 
@@ -192,6 +197,7 @@ const questionBank = {
         1: [
 
             { question: "🌐 O que usamos para criar sites?", options: ["HTML", "Geladeira", "Bicicleta"], correct: 0 },
+            
             { question: "📄 HTML cria:", options: ["Páginas da internet", "Filmes", "Jogos"], correct: 0 },
             { question: "📝 Para escrever texto no site usamos:", options: ["Parágrafo", "Controle", "Bola"], correct: 0 },
             { question: "🖼 Para mostrar uma foto usamos:", options: ["Imagem", "Som", "Cheiro"], correct: 0 },
@@ -252,6 +258,7 @@ const questionBank = {
     2: [
 
         { question: "🏷 O título principal de uma página é:", options: ["Título", "Imagem", "Vídeo"], correct: 0 },
+        
         { question: "📝 Um parágrafo serve para:", options: ["Escrever texto", "Mostrar vídeo", "Apagar site"], correct: 0 },
         { question: "🖼 Para mostrar uma foto no site usamos:", options: ["Imagem", "Lista", "Tabela"], correct: 0 },
         { question: "🔗 Um link serve para:", options: ["Ir para outra página", "Apagar site", "Fechar internet"], correct: 0 },
@@ -308,6 +315,7 @@ const questionBank = {
     3: [
 
         { question: "🧱 HTML cria:", options: ["Estrutura do site", "Cores", "Internet"], correct: 0 },
+        
         { question: "🎨 CSS muda:", options: ["Estilo e cores", "Estrutura", "Servidor"], correct: 0 },
         { question: "⚡ JavaScript faz:", options: ["Interação no site", "Cores", "Fotos"], correct: 0 },
         { question: "📄 Um site pode ter:", options: ["Várias páginas", "Só uma letra", "Nada"], correct: 0 },
@@ -358,6 +366,7 @@ const questionBank = {
         1: [
 
             { question: "🎨 Para que serve o CSS?", options: ["Deixar o site bonito", "Criar jogos", "Guardar fotos"], correct: 0 },
+            
             { question: "🌈 O CSS pode mudar:", options: ["Cores do site", "Internet", "Computador"], correct: 0 },
             { question: "📦 CSS pode mudar:", options: ["Tamanho das coisas", "Clima", "Tempo"], correct: 0 },
             { question: "🖼 CSS ajuda a:", options: ["Organizar o site", "Apagar o site", "Quebrar o site"], correct: 0 },
@@ -387,12 +396,16 @@ const questionBank = {
             { question: "🖼 CSS pode colocar borda em:", options: ["Fotos e caixas", "Internet", "Servidor"], correct: 0 },
             { question: "📄 CSS pode mudar:", options: ["A aparência do texto", "O teclado", "A internet"], correct: 0 },
             { question: "🎨 CSS ajuda a:", options: ["Melhorar o visual", "Apagar o site", "Desligar a internet"], correct: 0 },
+            
             { question: "🚀 CSS serve para:", options: ["Deixar páginas bonitas", "Criar vírus", "Desligar sites"], correct: 0 }
+
+            
         ],
 
         2: [
 
             { question: "📦 Espaço fora da caixa:", options: ["margin", "padding", "color"], correct: 0 },
+            
             { question: "📦 Espaço dentro da caixa:", options: ["padding", "margin", "width"], correct: 0 },
             { question: "🖼 Borda de um elemento:", options: ["border", "color", "size"], correct: 0 },
             { question: "🌈 Mudar cor do texto:", options: ["color", "font", "size"], correct: 0 },
@@ -431,6 +444,7 @@ const questionBank = {
         3: [
 
             { question: "📱 Fazer site funcionar no celular:", options: ["Responsivo", "Quadrado", "Pesado"], correct: 0 },
+            
             { question: "📱 Para adaptar tela usamos:", options: ["media query", "mobile css", "screen mode"], correct: 0 },
             { question: "🎨 Mudar fundo da página:", options: ["background", "color", "paint"], correct: 0 },
             { question: "📦 Deixar caixa no meio:", options: ["center", "middle", "align"], correct: 0 },
@@ -474,6 +488,7 @@ const questionBank = {
         1: [
 
             { question: "⚡ JavaScript serve para:", options: ["Fazer o site reagir", "Mudar internet", "Criar computador"], correct: 0 },
+            
             { question: "🖱 Quando clicamos em um botão:", options: ["Algo acontece", "Nada acontece", "Site fecha"], correct: 0 },
             { question: "🎮 Jogos na internet usam:", options: ["JavaScript", "Geladeira", "Caderno"], correct: 0 },
             { question: "📱 JavaScript deixa o site:", options: ["Interativo", "Parado", "Desligado"], correct: 0 },
@@ -512,6 +527,7 @@ const questionBank = {
         2: [
 
             { question: "❓ Tomar decisões no código:", options: ["if", "choose", "when"], correct: 0 },
+            
             { question: "🔄 Fazer algo várias vezes:", options: ["loop", "break", "end"], correct: 0 },
             { question: "📦 Guardar informação:", options: ["variável", "imagem", "link"], correct: 0 },
             { question: "🧠 Código segue:", options: ["Instruções", "Magia", "Sorte"], correct: 0 },

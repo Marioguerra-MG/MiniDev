@@ -11,7 +11,11 @@ function openCourses() {
 /* ========================= */
 
 function goToPage(page) {
-    document.getElementById("loader").style.display = "flex";
+    const loader = document.getElementById("loader");
+    if(loader){
+        loader.style.display = "flex";
+    }
+
     setTimeout(() => {
         window.location.href = page;
     }, 1000);
@@ -22,9 +26,11 @@ function goToPage(page) {
 /* ========================= */
 
 function showToast(message, type = "info"){
+
     const toast = document.createElement("div");
     toast.className = "toast " + type;
     toast.innerText = message;
+
     document.body.appendChild(toast);
 
     setTimeout(()=>{ toast.classList.add("show"); },100);
@@ -33,42 +39,174 @@ function showToast(message, type = "info"){
         toast.classList.remove("show");
         setTimeout(()=>{ toast.remove(); },400);
     },2500);
+
 }
 
 /* ========================= */
-/* CURSOS LIBERADOS */
+/* DATA */
 /* ========================= */
 
-function isCourseUnlocked(course){
-    if(course === "logic") return true;
+function getToday(){
 
-    const logic = JSON.parse(localStorage.getItem("logicakids_progress_logic")) || {currentPhase:0};
-    const html = JSON.parse(localStorage.getItem("logicakids_progress_html")) || {currentPhase:0};
-    const css = JSON.parse(localStorage.getItem("logicakids_progress_css")) || {currentPhase:0};
-    const js = JSON.parse(localStorage.getItem("logicakids_progress_javascript")) || {currentPhase:0};
-    const ai = JSON.parse(localStorage.getItem("logicakids_progress_ai")) || {currentPhase:0};
+    const today = new Date();
 
-    // Critério de desbloqueio: curso anterior **finalizado** (currentPhase > TOTAL_PHASES)
-    const TOTAL_PHASES = 3; 
+    return today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
 
-    if(course === "html") return logic.currentPhase > TOTAL_PHASES;
-    if(course === "css") return html.currentPhase > TOTAL_PHASES;
-    if(course === "javascript") return css.currentPhase > TOTAL_PHASES;
-    if(course === "ai") return js.currentPhase > TOTAL_PHASES;
-
-    return false;
 }
+
+/* ========================= */
+/* PROGRESSO */
+/* ========================= */
+
+function getProgress(course){
+
+    return JSON.parse(
+        localStorage.getItem("logicakids_progress_" + course)
+    ) || {currentPhase:0};
+
+}
+
+/* ========================= */
+/* CURSO TERMINADO */
+/* ========================= */
+
+function isCourseFinished(course){
+
+    const TOTAL_PHASES = 3;
+
+    return getProgress(course).currentPhase > TOTAL_PHASES;
+
+}
+
+/* ========================= */
+/* ORDEM DOS CURSOS */
+/* ========================= */
+
+const courseOrder = [
+    "logic",
+    "html",
+    "css",
+    "javascript",
+    "ai"
+];
+
+/* ========================= */
+/* NOMES DOS CURSOS */
+/* ========================= */
+
+const courseNames = {
+
+    logic: "Lógica",
+    html: "HTML",
+    css: "CSS",
+    javascript: "JavaScript",
+    ai: "IA"
+
+};
+
+/* ========================= */
+/* TODOS CURSOS TERMINADOS */
+/* ========================= */
+
+function areAllCoursesFinished(){
+
+    for(let course of courseOrder){
+
+        if(!isCourseFinished(course)){
+            return false;
+        }
+
+    }
+
+    return true;
+
+}
+
+/* ========================= */
+/* PEGAR PRÓXIMO CURSO */
+/* ========================= */
+
+function getNextCourse(){
+
+    for(let course of courseOrder){
+
+        if(!isCourseFinished(course)){
+            return course;
+        }
+
+    }
+
+    return null;
+
+}
+
 /* ========================= */
 /* INICIAR CURSO */
 /* ========================= */
 
 function startCourse(course){
-    if(!isCourseUnlocked(course)){
-        showToast("🔒 Termine o curso anterior primeiro!", "error");
+
+    const today = getToday();
+    const savedDay = localStorage.getItem("course_day");
+    const savedCourse = localStorage.getItem("course");
+
+    /* se todos cursos terminados */
+
+    if(areAllCoursesFinished()){
+
+        const certButton = document.getElementById("certificado");
+
+        if(certButton){
+            certButton.style.display = "block";
+        }
+
+        showToast("🏆 Todos os cursos concluídos!", "info");
         return;
     }
+
+    /* curso já concluído */
+
+    if(isCourseFinished(course)){
+
+        showToast("✅ Curso já concluído!", "info");
+        return;
+
+    }
+
+    /* já iniciou curso hoje */
+
+    if(savedDay === today){
+
+        if(savedCourse === course){
+
+            goToPage("/geral/levels/logicakids.html");
+            return;
+
+        }
+
+        showToast("⏳ Você já fez o curso de hoje!", "error");
+        return;
+
+    }
+
+    /* verificar ordem */
+
+    const nextCourse = getNextCourse();
+
+    if(course !== nextCourse){
+
+        showToast("🔒 Curso ainda bloqueado!", "error");
+        return;
+
+    }
+
+    /* salvar curso do dia */
+
     localStorage.setItem("course", course);
+    localStorage.setItem("course_day", today);
+
     goToPage("/geral/levels/logicakids.html");
+
 }
 
 /* ========================= */
@@ -76,17 +214,86 @@ function startCourse(course){
 /* ========================= */
 
 function updateCourseLocks(){
+
     const buttons = document.querySelectorAll(".courses button");
+
+    if(!buttons.length) return;
+
+    const today = getToday();
+    const savedDay = localStorage.getItem("course_day");
+    const savedCourse = localStorage.getItem("course");
+
+    const nextCourse = getNextCourse();
+    const allFinished = areAllCoursesFinished();
+
     buttons.forEach(btn => {
-        const course = btn.getAttribute("onclick").match(/'(.*?)'/)[1];
-        if(!isCourseUnlocked(course)){
-            btn.innerHTML = "🔒 " + btn.innerText;
-            btn.style.opacity = "0.6";
-        } else {
-            btn.innerHTML = btn.innerText.replace("🔒 ", "");
+
+        const onclickAttr = btn.getAttribute("onclick");
+
+        if(!onclickAttr) return;
+
+        const match = onclickAttr.match(/'(.*?)'/);
+
+        if(!match) return;
+
+        const course = match[1];
+        const name = courseNames[course];
+
+        /* TODOS TERMINADOS */
+
+        if(allFinished){
+
+            btn.innerHTML = "⭐ " + name;
             btn.style.opacity = "1";
+            return;
+
         }
+
+        /* CURSO CONCLUÍDO */
+
+        if(isCourseFinished(course)){
+
+            btn.innerHTML = "✔ " + name;
+            btn.style.opacity = "0.7";
+            return;
+
+        }
+
+        /* CURSO DO DIA */
+
+        if(savedDay === today && savedCourse === course){
+
+            btn.innerHTML = "▶️ " + name;
+            btn.style.opacity = "1";
+            return;
+
+        }
+
+        /* PRÓXIMO CURSO */
+
+        if(course === nextCourse && savedDay !== today){
+
+            btn.innerHTML = "▶️ " + name;
+            btn.style.opacity = "1";
+            return;
+
+        }
+
+        /* BLOQUEADO */
+
+        btn.innerHTML = "🔒 " + name;
+        btn.style.opacity = "0.4";
+
     });
+
 }
 
-updateCourseLocks();
+/* ========================= */
+/* INICIAR */
+/* ========================= */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    updateCourseLocks();
+
+});

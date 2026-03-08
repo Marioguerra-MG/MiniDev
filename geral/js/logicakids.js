@@ -157,7 +157,7 @@ function loadMission(){
     document.getElementById("mission").innerHTML = `
       <h2>🏆 Parabéns ${childName}!</h2>
       <p>Você terminou o curso de ${getCourseName(currentCourse)}</p>
-      <button onclick="baixarCertificadoFinal()">📜 Baixar Certificado</button>
+      <button onclick="baixarCertificadoFinal()">📜 Baixar Conquista</button>
     `;
     return;
   }
@@ -176,8 +176,10 @@ function loadMission(){
   if(progress.currentQuestion >= phaseLimit){
     document.getElementById("mission").innerHTML = `
       <h2>🎉 Fase ${progress.currentPhase} Concluída!</h2>
-      <button  id = " btnfinalizarFase" onclick="copyDayMessage()">Compartilhar Conquista</button>
-      <button onclick="finalizarFase()">Continuar 🚀</button>
+      <div class =" btnfinalizarFase">
+        <button  onclick="copyDayMessage()">Compartilhar Conquista</button>
+        <button onclick="finalizarFase()">Continuar 🚀</button>
+      </div>
     `;
     return;
   }
@@ -338,7 +340,7 @@ function gerarCertificadoFinal(){
 
   html2canvas(cert).then(canvas=>{
     const link = document.createElement("a");
-    link.download = `certificado-${courseName}.png`;
+    link.download = `Conquista-${courseName}.png`;
     link.href = canvas.toDataURL();
     link.click();
     cert.style.display = "none";
@@ -353,7 +355,7 @@ function finalizarCurso(){
   // Apenas marca o curso como finalizado, sem redirecionar
   progress.currentPhase = TOTAL_PHASES + 1;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-  showToast("🏆 Curso concluído! Baixe seu certificado 📜", "success");
+  showToast("🏆 Curso concluído! Baixe sua Conquista 📜", "success");
   loadMission(); // Atualiza a tela para mostrar o botão de baixar
 }
 
