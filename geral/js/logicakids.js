@@ -176,7 +176,7 @@ function loadMission(){
   if(progress.currentQuestion >= phaseLimit){
     document.getElementById("mission").innerHTML = `
       <h2>🎉 Fase ${progress.currentPhase} Concluída!</h2>
-      <button onclick="copyDayMessage()">Compartilhar Conquista</button>
+      <button  id = " btnfinalizarFase" onclick="copyDayMessage()">Compartilhar Conquista</button>
       <button onclick="finalizarFase()">Continuar 🚀</button>
     `;
     return;
