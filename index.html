@@ -9,6 +9,7 @@
     <title>MiniDev</title>
 
     <link rel="stylesheet" href="geral/css/index.css">
+    <link rel="stylesheet" href="geral/css/modal.css">
 
 </head>
 
@@ -57,9 +58,7 @@
 
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-        <script src="geral/js/index.js"></script>
-        <script src="geral/js/certificado.js"></script>
+
 
     </div>
 
@@ -118,6 +117,51 @@
         </div>
 
     </div>
+
+
+
+
+
+
+
+    <!-- MODAL PAGAMENTO -->
+    <!-- MODAL PAGAMENTO MELHORADO -->
+    <div id="paymentModal" class="payment-modal">
+        <div class="payment-box">
+            <!-- Close Button -->
+            <button class="close-modal" onclick="closePayment()">×</button>
+
+            <h2>🏆 Desbloquear Certificado</h2>
+
+            <p class="payment-text">
+                Parabéns! Você concluiu todos os cursos do <strong>MiniDev</strong>.
+            </p>
+
+            <p class="payment-text">
+                Para gerar seu certificado, finalize o pagamento abaixo.
+            </p>
+
+            <p class="payment-price">
+                R$ <strong>9,99</strong>
+            </p>
+
+            <div class="payment-buttons">
+                <a href="https://pay.kiwify.com.br/l5DBBlX">
+                    <button class="pay">
+                        💳 Pagar agora
+                    </button>
+                </a>
+                <button class="cancel" onclick="closePayment()">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="geral/js/modal.js"></script>
+    <script src="geral/js/index.js"></script>
+    <script src="geral/js/certificado.js"></script>
 
 </body>
 

@@ -1,159 +1,110 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded",function(){
 
-    const button = document.getElementById("btnCertificado");
+const courseOrder=["logic","html","css","javascript","ai"];
 
-    const courseOrder = ["logic", "html", "css", "javascript", "ai"];
 
+/* ========================= */
+/* PEGAR PROGRESSO */
+/* ========================= */
 
-    /* ========================= */
-    /* PEGAR PROGRESSO */
-    /* ========================= */
+function getProgress(course){
 
-    function getProgress(course) {
-        return JSON.parse(localStorage.getItem("logicakids_progress_" + course)) 
-        || { currentPhase: 0, xp: 0 };
-    }
+return JSON.parse(
+localStorage.getItem("logicakids_progress_"+course)
+) || {xp:0};
 
+}
 
-    /* ========================= */
-    /* VERIFICAR CURSO TERMINADO */
-    /* ========================= */
 
-    function isCourseFinished(course) {
+/* ========================= */
+/* GERAR CERTIFICADO */
+/* ========================= */
 
-        const TOTAL_PHASES = 3;
+function generateCertificate(){
 
-        return getProgress(course).currentPhase > TOTAL_PHASES;
+const childName=localStorage.getItem("childName") || "Mini Dev";
 
-    }
+let totalXP=0;
 
+courseOrder.forEach(course=>{
 
-    /* ========================= */
-    /* VERIFICAR CERTIFICADO */
-    /* ========================= */
+const progress=getProgress(course);
 
-    function checkCertificate() {
+totalXP+=progress.xp || 0;
 
-        const finished = courseOrder.every(course => isCourseFinished(course));
+});
 
-        if (finished) {
-            button.style.display = "inline-block";
-        }
+const level=Math.floor(totalXP/50)+1;
 
-    }
 
-    checkCertificate();
+/* COLOCAR DADOS */
 
+document.getElementById("cert-nome").innerText=childName;
+document.getElementById("cert-xp").innerText=totalXP;
+document.getElementById("cert-nivel").innerText=level;
+document.getElementById("cert-data").innerText=getDataCertificado();
 
-    /* ========================= */
-    /* GERAR CERTIFICADO */
-    /* ========================= */
 
-    function generateCertificate() {
+/* MOSTRAR CERTIFICADO */
 
-        /* NOME */
+const cert=document.getElementById("certificadoModelo");
 
-        const childName = localStorage.getItem("childName") || "Mini Dev";
+cert.style.display="block";
 
 
-        /* XP TOTAL */
+/* GERAR IMAGEM */
 
-        let totalXP = 0;
+html2canvas(cert).then(canvas=>{
 
-        courseOrder.forEach(course => {
+const link=document.createElement("a");
 
-            const progress = getProgress(course);
+link.download=`Certificado-${childName}.png`;
 
-            totalXP += progress.xp || 0;
+link.href=canvas.toDataURL("image/png");
 
-        });
+link.click();
 
+cert.style.display="none";
 
-        /* NÍVEL */
+});
 
-        const level = Math.floor(totalXP / 50) + 1;
+}
 
 
-        /* COLOCAR DADOS NO CERTIFICADO */
+/* DISPONIBILIZAR GLOBAL */
 
-        const nomeEl = document.getElementById("cert-nome");
-        const xpEl = document.getElementById("cert-xp");
-        const nivelEl = document.getElementById("cert-nivel");
-        const dataEl = document.getElementById("cert-data");
+window.generateCertificate=generateCertificate;
 
-        if (nomeEl) nomeEl.innerText = childName;
-        if (xpEl) xpEl.innerText = totalXP;
-        if (nivelEl) nivelEl.innerText = level;
 
-        if (dataEl) {
-            dataEl.innerText = getDataCertificado();
-        }
+/* ========================= */
+/* DATA */
+/* ========================= */
 
+function getDataCertificado(){
 
-        /* MOSTRAR CERTIFICADO */
+const hoje=new Date();
 
-        const cert = document.getElementById("certificadoModelo");
+const dia=hoje.getDate();
+const ano=hoje.getFullYear();
 
-        cert.style.display = "block";
+const meses=[
+"Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+"Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
+];
 
+const mes=meses[hoje.getMonth()];
 
-        /* GERAR IMAGEM */
+return dia+" de "+mes+" de "+ano;
 
-        html2canvas(cert).then(canvas => {
+}
 
-            const link = document.createElement("a");
 
-            link.download = `Certificado-${childName}.png`;
+/* COLOCAR DATA */
 
-            link.href = canvas.toDataURL("image/png");
+const campoData=document.getElementById("cert-data");
 
-            link.click();
-
-            cert.style.display = "none";
-
-        });
-
-    }
-
-
-    /* ========================= */
-    /* BOTÃO CERTIFICADO */
-    /* ========================= */
-
-    if(button){
-        button.addEventListener("click", generateCertificate);
-    }
-
-
-    /* ========================= */
-    /* DATA AUTOMÁTICA */
-    /* ========================= */
-
-    function getDataCertificado() {
-
-        const hoje = new Date();
-
-        const dia = hoje.getDate();
-        const ano = hoje.getFullYear();
-
-        const meses = [
-            "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
-            "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
-        ];
-
-        const mes = meses[hoje.getMonth()];
-
-        return dia + " de " + mes + " de " + ano;
-
-    }
-
-
-    /* COLOCAR DATA NA TELA */
-
-    const campoData = document.getElementById("cert-data");
-
-    if (campoData) {
-        campoData.textContent = getDataCertificado();
-    }
+if(campoData){
+campoData.textContent=getDataCertificado();
+}
 
 });
