@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Certificado Liberado</title>
+
+<style>
+
+body{
+
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-family:Arial, sans-serif;
+
+background:linear-gradient(135deg,#2e8bc0,#5ad1ff);
+
+}
+
+.box{
+
+background:white;
+
+padding:60px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+
+max-width:450px;
+
+}
+
+h1{
+
+color:#2e8bc0;
+font-size:32px;
+
+}
+
+p{
+
+font-size:18px;
+color:#333;
+
+}
+
+button{
+
+margin-top:25px;
+
+padding:14px 30px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:8px;
+
+background:#4CAF50;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#43a047;
+
+}
+
+.badge{
+
+font-size:60px;
+margin-bottom:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<div class="badge">🏆</div>
+
+<h1>Certificado Liberado!</h1>
+
+<p>
+Pagamento confirmado com sucesso.
+</p>
+
+<p>
+O certificado do MiniDev foi ativado!
+</p>
+
+<button onclick="ativar()">
+Ir gerar certificado
+</button>
+
+</div>
+
+<script>
+
+function ativar(){
+
+localStorage.setItem("paymentApproved","true");
+
+window.location.href = "/index.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

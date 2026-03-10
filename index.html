@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,25 +16,22 @@
 
     <div class="container">
 
-
         <div class="icone-curso">
             <h1>MiniDev</h1>
         </div>
 
-
-
         <p>Entre no mundo e comece a sua aventura!</p>
 
-        <button id="certificado" style="display:none;">
+        <!-- BOTÃO CERTIFICADO -->
+        <button id="btnCertificado" style="display:none;">
             🏆 Gerar Certificado
         </button>
 
         <div class="menu">
 
-
             <!-- SELEÇÃO DE CURSO -->
-
             <div id="courses" class="courses">
+
                 <h2>Escolha seu curso</h2>
 
                 <button onclick="startCourse('logic')">🧠 Lógica</button>
@@ -50,9 +48,7 @@
 
         </div>
 
-
         <!-- Tela de carregamento -->
-
         <div id="loader">
 
             <div class="spinner"></div>
@@ -61,8 +57,65 @@
 
         </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
         <script src="geral/js/index.js"></script>
         <script src="geral/js/certificado.js"></script>
+
+    </div>
+
+
+    <!-- CERTIFICADO -->
+    <div id="certificadoModelo">
+
+        <div class="cert-border">
+
+            <div class="linguagensConcluidas">
+
+                <P>LOGICA</P>
+                <p>HTML</p>
+                <P>CSS</P>
+                <P>JAVASCRIPT</P>
+                <P>IA</P>
+
+            </div>
+
+            <!--
+            <img id="logoImg" src="geral/img/logo-removebg-preview.png" alt="MiniDev">
+        -->
+
+
+            <h1 class="cert-student">
+                🏅 MiniDev 🏅
+            </h1>
+
+
+            <p class="cert-text">
+                <span id="cert-nome"></span> completou todos os desafios do MiniDev e mostrou que tem talento para
+                criar, aprender e transformar ideias em tecnologia. Continue explorando e construindo o futuro!
+            </p>
+
+            <p class="cert-info">
+                ⭐ XP Total: <span id="cert-xp"></span> |
+                🏆 Nível alcançado: <span id="cert-nivel"></span>
+            </p>
+
+            <div class="cert-bottom">
+
+                <div class="cert-date">
+                    <span id="cert-data"></span>
+                </div>
+
+                <div class="cert-sign">
+                    ______________________
+                    <p>Equipe MiniDev</p>
+                </div>
+
+            </div>
+            <p class="cert-footer">
+                MiniDev - O primeiro passo para se tornar um programador incrível 🚀
+            </p>
+
+        </div>
 
     </div>
 

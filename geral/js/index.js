@@ -1,4 +1,11 @@
 /* ========================= */
+/* LINK PAGAMENTO */
+/* ========================= */
+
+const PAYMENT_LINK = "https://pay.kiwify.com.br/l5DBBlX";
+
+
+/* ========================= */
 /* ABRIR CURSOS */
 /* ========================= */
 
@@ -6,12 +13,15 @@ function openCourses() {
     document.getElementById("courses").style.display = "block";
 }
 
+
 /* ========================= */
 /* IR PARA PÁGINA */
 /* ========================= */
 
 function goToPage(page) {
+
     const loader = document.getElementById("loader");
+
     if(loader){
         loader.style.display = "flex";
     }
@@ -19,7 +29,9 @@ function goToPage(page) {
     setTimeout(() => {
         window.location.href = page;
     }, 1000);
+
 }
+
 
 /* ========================= */
 /* TOAST */
@@ -28,6 +40,7 @@ function goToPage(page) {
 function showToast(message, type = "info"){
 
     const toast = document.createElement("div");
+
     toast.className = "toast " + type;
     toast.innerText = message;
 
@@ -36,11 +49,15 @@ function showToast(message, type = "info"){
     setTimeout(()=>{ toast.classList.add("show"); },100);
 
     setTimeout(()=>{
+
         toast.classList.remove("show");
+
         setTimeout(()=>{ toast.remove(); },400);
+
     },2500);
 
 }
+
 
 /* ========================= */
 /* DATA */
@@ -54,6 +71,7 @@ function getToday(){
 
 }
 
+
 /* ========================= */
 /* PROGRESSO */
 /* ========================= */
@@ -62,9 +80,10 @@ function getProgress(course){
 
     return JSON.parse(
         localStorage.getItem("logicakids_progress_" + course)
-    ) || {currentPhase:0};
+    ) || {currentPhase:0, xp:0};
 
 }
+
 
 /* ========================= */
 /* CURSO TERMINADO */
@@ -78,6 +97,7 @@ function isCourseFinished(course){
 
 }
 
+
 /* ========================= */
 /* ORDEM DOS CURSOS */
 /* ========================= */
@@ -89,6 +109,7 @@ const courseOrder = [
     "javascript",
     "ai"
 ];
+
 
 /* ========================= */
 /* NOMES DOS CURSOS */
@@ -103,6 +124,7 @@ const courseNames = {
     ai: "IA"
 
 };
+
 
 /* ========================= */
 /* TODOS CURSOS TERMINADOS */
@@ -122,6 +144,7 @@ function areAllCoursesFinished(){
 
 }
 
+
 /* ========================= */
 /* PEGAR PRÓXIMO CURSO */
 /* ========================= */
@@ -140,6 +163,42 @@ function getNextCourse(){
 
 }
 
+
+/* ========================= */
+/* VERIFICAR CERTIFICADO */
+/* ========================= */
+
+function checkCertificate(){
+
+    const certButton = document.getElementById("certificado");
+
+    if(!certButton) return;
+
+    if(areAllCoursesFinished()){
+
+        const payment = localStorage.getItem("paymentApproved");
+
+        if(payment === "true"){
+
+            certButton.style.display = "block";
+
+        }else{
+
+            certButton.style.display = "none";
+
+            showToast("🎓 Curso concluído! Libere seu certificado.", "info");
+
+            setTimeout(()=>{
+                window.open(PAYMENT_LINK, "_blank");
+            },1500);
+
+        }
+
+    }
+
+}
+
+
 /* ========================= */
 /* INICIAR CURSO */
 /* ========================= */
@@ -150,21 +209,37 @@ function startCourse(course){
     const savedDay = localStorage.getItem("course_day");
     const savedCourse = localStorage.getItem("course");
 
-    /* se todos cursos terminados */
+    /* TODOS CURSOS TERMINADOS */
 
     if(areAllCoursesFinished()){
 
-        const certButton = document.getElementById("certificado");
+        const payment = localStorage.getItem("paymentApproved");
 
-        if(certButton){
-            certButton.style.display = "block";
+        if(payment === "true"){
+
+            const certButton = document.getElementById("certificado");
+
+            if(certButton){
+                certButton.style.display = "block";
+            }
+
+            showToast("🏆 Todos os cursos concluídos!", "info");
+
+        }else{
+
+            showToast("🎓 Curso finalizado! Libere o certificado.", "info");
+
+            setTimeout(()=>{
+                window.open(PAYMENT_LINK,"_blank");
+            },1200);
+
         }
 
-        showToast("🏆 Todos os cursos concluídos!", "info");
         return;
+
     }
 
-    /* curso já concluído */
+    /* CURSO JÁ CONCLUÍDO */
 
     if(isCourseFinished(course)){
 
@@ -173,7 +248,7 @@ function startCourse(course){
 
     }
 
-    /* já iniciou curso hoje */
+    /* JÁ FEZ CURSO HOJE */
 
     if(savedDay === today){
 
@@ -189,7 +264,7 @@ function startCourse(course){
 
     }
 
-    /* verificar ordem */
+    /* VERIFICAR ORDEM */
 
     const nextCourse = getNextCourse();
 
@@ -200,7 +275,7 @@ function startCourse(course){
 
     }
 
-    /* salvar curso do dia */
+    /* SALVAR CURSO DO DIA */
 
     localStorage.setItem("course", course);
     localStorage.setItem("course_day", today);
@@ -208,6 +283,7 @@ function startCourse(course){
     goToPage("/geral/levels/logicakids.html");
 
 }
+
 
 /* ========================= */
 /* ATUALIZAR BOTÕES */
@@ -243,7 +319,7 @@ function updateCourseLocks(){
 
         if(allFinished){
 
-            btn.innerHTML = "⭐ " + name;
+            btn.innerHTML = "✔ " + name;
             btn.style.opacity = "1";
             return;
 
@@ -288,12 +364,14 @@ function updateCourseLocks(){
 
 }
 
+
 /* ========================= */
-/* INICIAR */
+/* INICIAR SISTEMA */
 /* ========================= */
 
 document.addEventListener("DOMContentLoaded", function(){
 
     updateCourseLocks();
+    checkCertificate();
 
 });
