@@ -510,35 +510,229 @@ hr{
   100% {transform: translateX(0)}
 }
 
+/* ========================= */
+/* RESPONSIVO OTIMIZADO PARA CELULARES */
+/* ========================= */
+
 @media(max-width:480px) {
 
+  /* APP principal */
   .app {
+    padding: 15px;          /* menos padding */
+    margin-top: 40px;       /* menor espaçamento do topo */
+  }
 
-    padding: 20px;
-
+  h2 {
+    font-size: 20px;
   }
 
   h3 {
-
-    font-size: 18px;
-
+    font-size: 16px;
+    margin: 8px 0;
   }
 
-  .option {
-
-    font-size: 20px;
-
-    padding: 12px;
-
+  /* Opções e botões */
+  .option, button {
+    font-size: 16px;
+    padding: 10px;
+    min-height: 50px;
+    gap: 6px;
   }
 
-  button {
+  /* Certificado */
+  .certificado {
+    width: 95%;              /* ocupar quase toda a tela */
+    height: auto;            /* altura automática para caber na tela */
+    max-height: 90vh;        /* nunca ultrapassa a altura da tela */
+    padding: 25px 15px;      /* padding menor */
+    font-size: 14px;         /* reduzir fonte base */
+    overflow-y: auto;        /* scroll interno só se necessário */
+    border-radius: 15px;
+  }
 
+  .certificado h1 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .certificado h2 {
     font-size: 20px;
+    margin: 8px 0;
+  }
 
+  .certificado h3 {
+    font-size: 16px;
+    margin: 6px 0;
+  }
+
+  .certificado p {
+    font-size: 14px;
+    margin: 4px 0;
+  }
+
+  .certificado > div {
+    gap: 15px;
+    flex-direction: column; /* empilha conteúdo para caber melhor */
+    align-items: center;
+  }
+
+  .cert-footer {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+
+  /* Toast menor */
+  .toast {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  /* Progress bar menor */
+  .progress-bar {
+    height: 12px;
+  }
+
+  .progress-text {
+    font-size: 12px;
+  }
+
+  /* Caixa do nome */
+  .name-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .name-card input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .name-card button {
+    font-size: 16px;
+    padding: 10px;
   }
 
 }
+
+/* ========================= */
+/* RESPONSIVO PARA TELAS 320px */
+/* ========================= */
+
+@media(max-width: 320px) {
+
+  /* APP principal */
+  .app {
+    width: 95%;          /* ocupar quase toda a largura */
+    padding: 12px;       /* padding menor */
+    margin-top: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 14px;
+    margin: 6px 0;
+  }
+
+  /* Botões e opções */
+  .option, button {
+    font-size: 14px;
+    padding: 8px;
+    min-height: 45px;
+    gap: 4px;
+  }
+
+  .btnfinalizarFase{
+    gap: 6px;
+  }
+
+  /* Progress bar menor */
+  .progress-bar {
+    height: 10px;
+  }
+
+  .progress-text {
+    font-size: 12px;
+  }
+
+  /* Certificado */
+  .certificado {
+    width: 95%;
+    height: auto;
+    max-height: 85vh;
+    padding: 15px 10px;
+    font-size: 12px;
+    border-radius: 12px;
+    overflow-y: auto;
+  }
+
+  .certificado h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .certificado h2 {
+    font-size: 18px;
+    margin: 6px 0;
+  }
+
+  .certificado h3 {
+    font-size: 14px;
+    margin: 4px 0;
+  }
+
+  .certificado p {
+    font-size: 12px;
+    margin: 2px 0;
+  }
+
+  .certificado > div {
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cert-footer {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+
+  /* Toast menor */
+  .toast {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  /* Caixa de nome */
+  .name-card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .name-card input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .name-card button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* Ícones, mascotes ou elementos grandes */
+  .icone-curso {
+    width: 180px;
+    height: 70px;
+  }
+
+  .icone-curso h1 {
+    font-size: 24px;
+  }
+
+}
+
 
 
 
